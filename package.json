@@ -1,0 +1,17 @@
+{
+	"name": "smartos-landing",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint"
+	},
+	"devDependencies": {
+		"@types/node": "^24.10.1",
+		"turbo": "^2.6.1"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
+}
