@@ -5,6 +5,13 @@
 		"dev": {
 			"persistent": true,
 			"cache": false
+		},
+		"build": {
+			"cache": false
+		},
+		"preview": {
+			"cache": false,
+			"persistent": true
 		}
 	}
 }
