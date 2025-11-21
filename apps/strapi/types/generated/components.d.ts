@@ -81,7 +81,7 @@ export interface SharedDepartment extends Struct.ComponentSchema {
   };
   attributes: {
     functions: Schema.Attribute.Text;
-    thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    thumbnail: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
