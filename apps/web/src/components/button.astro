@@ -1,0 +1,15 @@
+---
+type Props = {
+  label: string;
+  icon: string;
+  href: string;
+  variant: "solid" | "text" | "white";
+};
+
+const { label, icon, variant } = Astro.props;
+---
+
+<button>
+  <span>{label}</span>
+  <span>{label}</span>
+</button>

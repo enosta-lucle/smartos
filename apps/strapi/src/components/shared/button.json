@@ -1,24 +1,29 @@
 {
-	"collectionName": "components_shared_buttons",
-	"info": {
-		"displayName": "Button"
-	},
-	"options": {},
-	"attributes": {
-		"label": {
-			"type": "string",
-			"default": "Click here"
-		},
-		"icon": {
-			"type": "text"
-		},
-		"href": {
-			"type": "string"
-		},
-		"variant": {
-			"type": "enumeration",
-			"enum": ["solid", "text", "white"]
-		}
-	},
-	"config": {}
+  "collectionName": "components_shared_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Click here"
+    },
+    "icon": {
+      "type": "text"
+    },
+    "href": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "solid",
+      "enum": [
+        "solid",
+        "text",
+        "white"
+      ]
+    }
+  },
+  "config": {}
 }

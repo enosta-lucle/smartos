@@ -1,0 +1,12 @@
+---
+import { fetchSVG } from "$/utils/client.util";
+
+type Props = {
+  url: string;
+};
+const { url } = Astro.props;
+
+const svg = await fetchSVG(url);
+---
+
+<Fragment set:html={svg} />

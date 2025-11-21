@@ -1,4 +1,5 @@
 import { getSecret } from "astro:env/server";
+import { optimize } from "svgo";
 
 type APIOptions = {
 	method: "GET" | "POST" | "PUT" | "DELETE";
@@ -11,7 +12,6 @@ export async function api(
 ) {
 	const { populate = "all", method } = options;
 
-	console.log("trungluc", getSecret("BASE_URL"));
 	const query = new URLSearchParams({ populate });
 	const url = `${getSecret("BASE_URL")}${endpoint}?${query}`;
 
@@ -27,6 +27,30 @@ export async function api(
 		const data = await response.json();
 
 		return data;
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+type FetchSVGOptions = {
+	optimized?: boolean;
+};
+
+export async function fetchSVG(
+	url: string,
+	options: FetchSVGOptions = { optimized: true },
+) {
+	const { optimized = true } = options;
+
+	try {
+		const response = await fetch(url);
+		const svg = await response.text();
+
+		if (optimized) {
+			return optimize(svg).data;
+		}
+
+		return svg;
 	} catch (error) {
 		console.error(error);
 	}

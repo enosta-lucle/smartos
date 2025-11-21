@@ -1,0 +1,18 @@
+---
+import Layout from "$/layouts/Layout.astro";
+import { fetchSVG } from "$/utils/client.util";
+
+const optimizedSVG = await fetchSVG("https://www.svgrepo.com/show/19461/url-link.svg");
+---
+
+<Layout title="Playground">
+  <span class="text-red-500">Hello nef</span>
+
+  <svg width="40" height="40">
+    <image xlink:href="https://www.svgrepo.com/show/19461/url-link.svg" width="40" height="40" class="text-red-500" />
+  </svg>
+
+  <span class="text-yellow-500">
+    <Fragment set:html={optimizedSVG} />
+  </span>
+</Layout>

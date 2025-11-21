@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SectionHero extends Struct.ComponentSchema {
+  collectionName: 'components_section_heroes';
+  info: {
+    displayName: 'Hero';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'shared.button', true>;
+    highlight: Schema.Attribute.String;
+    tag: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    visual: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface SharedAddress extends Struct.ComponentSchema {
   collectionName: 'components_shared_addresses';
   info: {
@@ -43,7 +57,8 @@ export interface SharedButton extends Struct.ComponentSchema {
     href: Schema.Attribute.String;
     icon: Schema.Attribute.Text;
     label: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Click here'>;
-    variant: Schema.Attribute.Enumeration<['solid', 'text', 'white']>;
+    variant: Schema.Attribute.Enumeration<['solid', 'text', 'white']> &
+      Schema.Attribute.DefaultTo<'solid'>;
   };
 }
 
@@ -162,6 +177,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'section.hero': SectionHero;
       'shared.address': SharedAddress;
       'shared.award': SharedAward;
       'shared.brand': SharedBrand;
