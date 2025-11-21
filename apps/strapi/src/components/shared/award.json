@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_awards",
+  "info": {
+    "displayName": "Award"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

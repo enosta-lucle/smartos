@@ -1,0 +1,21 @@
+{
+	"collectionName": "components_shared_departments",
+	"info": {
+		"displayName": "Department"
+	},
+	"options": {},
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"thumbnail": {
+			"type": "media",
+			"multiple": false,
+			"allowedTypes": ["images"]
+		},
+		"functions": {
+			"type": "text"
+		}
+	},
+	"config": {}
+}

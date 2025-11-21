@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_counters",
+  "info": {
+    "displayName": "Counter"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer",
+      "required": true
+    },
+    "unit": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,1 +1,3 @@
-export default () => ({});
+export default () => ({
+	seo: { enabled: true },
+});

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_contact_informations",
+  "info": {
+    "displayName": "Contact Information"
+  },
+  "options": {},
+  "attributes": {
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    },
+    "addresses": {
+      "type": "component",
+      "component": "shared.address",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

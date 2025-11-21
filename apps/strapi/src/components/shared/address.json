@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_addresses",
+  "info": {
+    "displayName": "Address"
+  },
+  "options": {},
+  "attributes": {
+    "city": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
