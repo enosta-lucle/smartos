@@ -1,6 +1,11 @@
 ---
 import astroLogo from "$/assets/astro.svg";
 import background from "$/assets/background.svg";
+
+import { api } from "$/utils/client.util";
+
+const dumps = await api("/dumps");
+console.log(dumps);
 ---
 
 <div id="container">
