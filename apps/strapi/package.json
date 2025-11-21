@@ -15,6 +15,7 @@
 		"upgrade:dry": "npx @strapi/upgrade latest --dry"
 	},
 	"dependencies": {
+		"@cslegany/prev-next-button-strapi5": "^0.5.2",
 		"@strapi/plugin-cloud": "5.31.1",
 		"@strapi/plugin-seo": "^2.0.8",
 		"@strapi/plugin-users-permissions": "5.31.1",
@@ -23,8 +24,11 @@
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
 		"react-router-dom": "^6.0.0",
+		"strapi-plugin-config-sync": "^3.1.2",
+		"strapi-plugin-github-publish": "^0.2.0",
 		"strapi-plugin-icons-field": "^1.1.5",
 		"strapi-plugin-populate-all": "^1.4.0",
+		"strapi-plugin-publisher": "^2.0.5",
 		"styled-components": "^6.0.0"
 	},
 	"devDependencies": {

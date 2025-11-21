@@ -6,4 +6,7 @@ export default () => ({
 			publicPath: "icons",
 		},
 	},
+	publisher: {
+		enabled: true,
+	},
 });
