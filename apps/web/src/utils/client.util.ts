@@ -3,16 +3,28 @@ import { optimize } from "svgo";
 
 type APIOptions = {
 	method: "GET" | "POST" | "PUT" | "DELETE";
-	populate?: string | "all";
+	populate: string | "all";
+	pagination: {
+		page: number;
+		size?: number;
+	};
 };
 
-export async function api(
+export async function api<T>(
 	endpoint: `/${string}`,
-	options: APIOptions = { populate: "all", method: "GET" },
+	options: APIOptions = {
+		populate: "all",
+		method: "GET",
+		pagination: { page: 1, size: 50 },
+	},
 ) {
-	const { populate = "all", method } = options;
+	const { populate = "all", method, pagination } = options;
 
-	const query = new URLSearchParams({ populate });
+	const query = new URLSearchParams({
+		populate,
+		"pagination[page]": pagination.page.toString(),
+		"pagination[pageSize]": pagination.size?.toString() || "50",
+	});
 	const url = `${getSecret("BASE_URL")}${endpoint}?${query}`;
 
 	try {
@@ -24,7 +36,7 @@ export async function api(
 			},
 		});
 
-		const data = await response.json();
+		const data: T = await response.json();
 
 		return data;
 	} catch (error) {

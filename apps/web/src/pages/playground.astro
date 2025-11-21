@@ -1,18 +1,20 @@
 ---
+import Icon from "$/components/icon.astro";
 import Layout from "$/layouts/Layout.astro";
-import { fetchSVG } from "$/utils/client.util";
+import { type DumpResponse } from "$/types/model.type";
+import { api } from "$/utils/client.util";
 
-const optimizedSVG = await fetchSVG("https://www.svgrepo.com/show/19461/url-link.svg");
+const dumps = await api<DumpResponse>("/dumps");
 ---
 
 <Layout title="Playground">
   <span class="text-red-500">Hello nef</span>
 
-  <svg width="40" height="40">
-    <image xlink:href="https://www.svgrepo.com/show/19461/url-link.svg" width="40" height="40" class="text-red-500" />
-  </svg>
+  <pre>
+    <code>
+      {JSON.stringify(dumps?.data.map((dump) => dump.icon))}
+    </code>
+  </pre>
 
-  <span class="text-yellow-500">
-    <Fragment set:html={optimizedSVG} />
-  </span>
+  {dumps?.data.map((dump) => dump.icon && <Icon className="text-red-500" src={dump.icon} />)}
 </Layout>

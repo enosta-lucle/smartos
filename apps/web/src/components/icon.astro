@@ -1,12 +1,15 @@
 ---
-import { fetchSVG } from "$/utils/client.util";
+import * as cheerio from "cheerio";
 
 type Props = {
-  url: string;
+  src: string;
+  className?: string;
 };
-const { url } = Astro.props;
+const { src, className } = Astro.props;
 
-const svg = await fetchSVG(url);
+const $ = cheerio.load(src ?? "");
+
+$("svg").addClass(className);
 ---
 
-<Fragment set:html={svg} />
+<Fragment set:html={$.html("svg")} />
