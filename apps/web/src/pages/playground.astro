@@ -16,5 +16,9 @@ const dumps = await api<DumpResponse>("/dumps");
     </code>
   </pre>
 
-  {dumps?.data.map((dump) => dump.icon && <Icon className="text-red-500" src={dump.icon} />)}
+  {
+    dumps?.data
+      .flatMap((dump) => dump.buttons)
+      .map(({ icon }) => icon && <Icon className="text-yellow-500 size-10" src={icon} />)
+  }
 </Layout>

@@ -55,7 +55,8 @@ export interface SharedButton extends Struct.ComponentSchema {
   };
   attributes: {
     href: Schema.Attribute.String;
-    icon: Schema.Attribute.Text;
+    icon: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<'plugin::icons-field.icon'>;
     label: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Click here'>;
     variant: Schema.Attribute.Enumeration<['solid', 'text', 'white']> &
       Schema.Attribute.DefaultTo<'solid'>;

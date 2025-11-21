@@ -15,10 +15,6 @@
       "type": "component",
       "component": "shared.button",
       "repeatable": true
-    },
-    "icon": {
-      "type": "customField",
-      "customField": "plugin::icons-field.icon"
     }
   }
 }

@@ -9,9 +9,6 @@
       "type": "string",
       "default": "Click here"
     },
-    "icon": {
-      "type": "text"
-    },
     "href": {
       "type": "string"
     },
@@ -23,6 +20,10 @@
         "text",
         "white"
       ]
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon"
     }
   },
   "config": {}
