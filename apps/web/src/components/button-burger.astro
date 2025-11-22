@@ -1,15 +1,16 @@
 ---
 type Props = {
   as: Element;
+  id?: string;
 };
 
-const { as: As = Fragment } = Astro.props;
+const { as: As = Fragment, id = "toggle-checkbox" } = Astro.props;
 ---
 
 <As>
-  <input id="toggle-checkbox" type="checkbox" class="hidden" />
+  <input id={id} type="checkbox" class="hidden" />
 
-  <label for="toggle-checkbox" class:list={["toggle-btn", true && "active"]}>
+  <label for={id} class="toggle-btn">
     <div></div>
   </label>
 </As>

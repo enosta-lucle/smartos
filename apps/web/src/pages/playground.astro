@@ -1,24 +1,7 @@
 ---
-import Icon from "$/components/icon.astro";
 import MainLayout from "$/layouts/main-layout.astro";
-import { type DumpResponse } from "$/types/model.type";
-import { api } from "$/utils/client.util";
-
-const dumps = await api<DumpResponse>("/dumps");
 ---
 
 <MainLayout title="Playground">
   <span class="text-red-500">Hello nef</span>
-
-  <pre>
-    <code>
-      {JSON.stringify(dumps?.data.map((dump) => dump.icon))}
-    </code>
-  </pre>
-
-  {
-    dumps?.data
-      .flatMap((dump) => dump.buttons)
-      .map(({ icon }) => icon && <Icon className="text-yellow-500 size-10" src={icon} />)
-  }
 </MainLayout>

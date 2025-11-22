@@ -1,16 +1,23 @@
 ---
 import { first, get } from "lodash-es";
 import ButtonBurger from "$/components/button-burger.astro";
+import HeaderMenu from "$/components/header-menu.astro";
 import LogoText from "$/components/logo-text.astro";
 import { api } from "$/utils/client.util";
 
 const getHeaders = await api("/headers");
 const header = first(get(getHeaders, "data"));
+
 console.log({ header });
 ---
 
-<header class="h-13 flex items-center border-b border-gray-cool px-4 justify-between">
+<header class="h-13 flex items-center border-b border-gray-cool px-4 justify-between sticky top-0">
   <LogoText height={22} />
+  <ButtonBurger id="toggle-checkbox" />
 
-  <ButtonBurger />
+  <HeaderMenu as="nav" className="absolute" />
 </header>
+
+<style>
+  @reference "$/styles/global.css";
+</style>

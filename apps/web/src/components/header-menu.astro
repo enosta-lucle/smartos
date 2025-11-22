@@ -1,0 +1,10 @@
+---
+type Props = {
+  className?: string;
+  as: Element;
+};
+
+const { className, as: As = "nav" } = Astro.props;
+---
+
+<As class={className}>Navigation menu</As>
