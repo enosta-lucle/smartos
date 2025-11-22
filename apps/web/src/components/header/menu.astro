@@ -1,6 +1,7 @@
 ---
 import { first, get } from "lodash-es";
 import Button from "$/components/button.astro";
+import type { HeaderResponse } from "$/types/strapi.type";
 import { api } from "$/utils/client.util";
 
 type Props = {
@@ -9,17 +10,15 @@ type Props = {
 
 const { className } = Astro.props;
 
-const getHeaders = await api("/headers");
+const getHeaders = await api<HeaderResponse>("/headers");
 const header = first(get(getHeaders, "data"));
 
 const button = get(header, "button");
 const menuItems = get(header, "menu");
-
-console.log(button);
 ---
 
 <nav class:list={className}>
-  <div class="absolute top-0">
-    <Button {...button ?? {}} />
+  <div class="absolute top-0 p-4">
+    {button && <Button {...button} />}
   </div>
 </nav>

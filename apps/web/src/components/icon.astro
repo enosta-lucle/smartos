@@ -5,10 +5,10 @@ type Props = {
   src: string; // INFO: SVG string
   className?: string;
 };
+
 const { src, className } = Astro.props;
 
 const $ = cheerio.load(src ?? "");
-
 $("svg").addClass(className);
 ---
 
