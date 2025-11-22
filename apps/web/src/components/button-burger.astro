@@ -1,16 +1,18 @@
 ---
 type Props = {
-  className?: string;
+  as: Element;
 };
+
+const { as: As = Fragment } = Astro.props;
 ---
 
-<Fragment>
+<As>
   <input id="toggle-checkbox" type="checkbox" class="hidden" />
 
   <label for="toggle-checkbox" class:list={["toggle-btn", true && "active"]}>
     <div></div>
   </label>
-</Fragment>
+</As>
 
 <style>
   @reference "$/styles/global.css";
