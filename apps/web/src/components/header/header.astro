@@ -13,11 +13,10 @@ console.log({ header });
 
 <header class="h-13 flex items-center border-b border-gray-cool px-4 justify-between sticky top-0">
   <LogoText height={22} />
-  <Toggler id="toggle-checkbox" />
+  <Toggler id="toggle-checkbox" className="[&:checked~nav]:h-[calc(100vh-3.25rem)]" />
 
-  <Menu as="nav" className="absolute" />
+  <Menu
+    as="nav"
+    className="absolute bg-white w-full top-full translate-y-px left-0 overflow-hidden h-0 transition-all"
+  />
 </header>
-
-<style>
-  @reference "$/styles/global.css";
-</style>
