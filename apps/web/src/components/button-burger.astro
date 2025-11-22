@@ -1,0 +1,58 @@
+---
+type Props = {
+  className?: string;
+};
+---
+
+<Fragment>
+  <input id="toggle-checkbox" type="checkbox" class="hidden" />
+
+  <label for="toggle-checkbox" class:list={["toggle-btn", true && "active"]}>
+    <div></div>
+  </label>
+</Fragment>
+
+<style>
+  @reference "$/styles/global.css";
+
+  .toggle-btn {
+    @apply size-6 relative;
+
+    & > div {
+      @apply absolute bg-gray-steel w-5 h-0.5 rounded-full transition-all;
+      @apply top-1/2 left-1/2 -translate-1/2;
+
+      &::before,
+      &::after {
+        @apply content-[''] block w-full h-0.5 bg-gray-steel rounded-full absolute inset-0 transition-all;
+      }
+
+      &::before {
+        @apply -translate-y-1.5;
+      }
+
+      &::after {
+        @apply translate-y-1.5;
+      }
+    }
+  }
+
+  input:checked ~ .toggle-btn {
+    & > div {
+      @apply bg-transparent;
+
+      &::before,
+      &::after {
+        @apply translate-0;
+      }
+
+      &::before {
+        @apply rotate-45;
+      }
+
+      &::after {
+        @apply rotate-135;
+      }
+    }
+  }
+</style>

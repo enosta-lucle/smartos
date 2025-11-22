@@ -1,5 +1,48 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface HeaderMenuItemLevel1 extends Struct.ComponentSchema {
+  collectionName: 'components_header_menu_item_level_1s';
+  info: {
+    displayName: 'Menu Item Level 1';
+  };
+  attributes: {
+    children: Schema.Attribute.Component<'header.menu-item-level-2', true>;
+    href: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HeaderMenuItemLevel2 extends Struct.ComponentSchema {
+  collectionName: 'components_header_menu_item_level_2s';
+  info: {
+    displayName: 'Menu Item Level 2';
+  };
+  attributes: {
+    badge: Schema.Attribute.String;
+    children: Schema.Attribute.Component<'header.menu-item-level-3', true>;
+    description: Schema.Attribute.String;
+    href: Schema.Attribute.String;
+    icon: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<'plugin::icons-field.icon'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HeaderMenuItemLevel3 extends Struct.ComponentSchema {
+  collectionName: 'components_header_menu_item_level_3s';
+  info: {
+    displayName: 'Menu Item Level 3';
+  };
+  attributes: {
+    badge: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    href: Schema.Attribute.String;
+    icon: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<'plugin::icons-field.icon'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -178,6 +221,9 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'header.menu-item-level-1': HeaderMenuItemLevel1;
+      'header.menu-item-level-2': HeaderMenuItemLevel2;
+      'header.menu-item-level-3': HeaderMenuItemLevel3;
       'section.hero': SectionHero;
       'shared.address': SharedAddress;
       'shared.award': SharedAward;

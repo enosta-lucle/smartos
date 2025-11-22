@@ -1,13 +1,13 @@
 ---
 import Icon from "$/components/icon.astro";
-import Layout from "$/layouts/Layout.astro";
+import MainLayout from "$/layouts/main-layout.astro";
 import { type DumpResponse } from "$/types/model.type";
 import { api } from "$/utils/client.util";
 
 const dumps = await api<DumpResponse>("/dumps");
 ---
 
-<Layout title="Playground">
+<MainLayout title="Playground">
   <span class="text-red-500">Hello nef</span>
 
   <pre>
@@ -21,4 +21,4 @@ const dumps = await api<DumpResponse>("/dumps");
       .flatMap((dump) => dump.buttons)
       .map(({ icon }) => icon && <Icon className="text-yellow-500 size-10" src={icon} />)
   }
-</Layout>
+</MainLayout>

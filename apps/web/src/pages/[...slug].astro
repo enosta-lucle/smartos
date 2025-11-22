@@ -1,6 +1,6 @@
 ---
 import { get } from "lodash-es";
-import Layout from "$/layouts/Layout.astro";
+import MainLayout from "$/layouts/main-layout.astro";
 import { api } from "$/utils/client.util";
 
 export function getStaticPaths() {
@@ -13,8 +13,8 @@ const page = await api("/pages", { filters: { slug: `/${slug}` } });
 console.log(JSON.stringify(get(page, ["data", 0, "sections"]), null, 2));
 ---
 
-<Layout>
+<MainLayout>
   <pre>
     <code>{JSON.stringify(slug, null, 2)}</code>
   </pre>
-</Layout>
+</MainLayout>

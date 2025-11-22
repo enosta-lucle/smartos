@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_header_menu_item_level_3s",
+  "info": {
+    "displayName": "Menu Item Level 3"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon"
+    },
+    "description": {
+      "type": "text"
+    },
+    "href": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

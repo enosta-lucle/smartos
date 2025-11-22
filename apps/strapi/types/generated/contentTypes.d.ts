@@ -455,26 +455,29 @@ export interface ApiDumpDump extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiIconIcon extends Struct.CollectionTypeSchema {
-  collectionName: 'icons';
+export interface ApiHeaderHeader extends Struct.CollectionTypeSchema {
+  collectionName: 'headers';
   info: {
-    displayName: 'Icon';
-    pluralName: 'icons';
-    singularName: 'icon';
+    displayName: 'Header';
+    pluralName: 'headers';
+    singularName: 'header';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
   };
   attributes: {
+    button: Schema.Attribute.Component<'shared.button', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::icon.icon'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::header.header'
+    > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
+    menu: Schema.Attribute.Component<'header.menu-item-level-1', true>;
     publishedAt: Schema.Attribute.DateTime;
-    svg: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1061,7 +1064,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::dump.dump': ApiDumpDump;
-      'api::icon.icon': ApiIconIcon;
+      'api::header.header': ApiHeaderHeader;
       'api::page.page': ApiPagePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

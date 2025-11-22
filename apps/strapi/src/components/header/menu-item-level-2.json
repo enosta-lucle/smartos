@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_header_menu_item_level_2s",
+  "info": {
+    "displayName": "Menu Item Level 2"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "children": {
+      "type": "component",
+      "component": "header.menu-item-level-3",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

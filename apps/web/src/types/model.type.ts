@@ -1,18 +1,3 @@
-export type DumpResponse = {
-	data: Dump[];
-	meta: Meta;
-};
-
-export type Dump = {
-	id: number;
-	documentId: string;
-	createdAt: string;
-	updatedAt: string;
-	publishedAt: string;
-	icon?: string;
-	buttons: Button[];
-};
-
 export type Button = {
 	id: number;
 	label: string;

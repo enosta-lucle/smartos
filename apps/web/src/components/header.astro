@@ -1,0 +1,16 @@
+---
+import { first, get } from "lodash-es";
+import ButtonBurger from "$/components/button-burger.astro";
+import LogoText from "$/components/logo-text.astro";
+import { api } from "$/utils/client.util";
+
+const getHeaders = await api("/headers");
+const header = first(get(getHeaders, "data"));
+console.log({ header });
+---
+
+<header class="h-13 flex items-center border-b border-gray-cool px-4 justify-between">
+  <LogoText height={22} />
+
+  <ButtonBurger />
+</header>

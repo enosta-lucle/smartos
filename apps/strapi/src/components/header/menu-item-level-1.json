@@ -1,0 +1,21 @@
+{
+	"collectionName": "components_header_menu_item_level_1s",
+	"info": {
+		"displayName": "Menu Item Level 1"
+	},
+	"options": {},
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"href": {
+			"type": "string"
+		},
+		"children": {
+			"type": "component",
+			"component": "header.menu-item-level-2",
+			"repeatable": true
+		}
+	},
+	"config": {}
+}
