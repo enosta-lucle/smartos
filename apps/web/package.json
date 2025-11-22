@@ -12,11 +12,13 @@
 		"@tailwindcss/vite": "^4.1.17",
 		"astro": "^5.16.0",
 		"cheerio": "^1.1.2",
+		"lodash-es": "^4.17.21",
 		"svgo": "^4.0.0",
 		"tailwindcss": "^4.1.17"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.6",
+		"@types/lodash-es": "^4.17.12",
 		"rollup-plugin-visualizer": "^6.0.5"
 	}
 }

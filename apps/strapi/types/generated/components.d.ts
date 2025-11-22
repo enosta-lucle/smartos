@@ -9,8 +9,8 @@ export interface SectionHero extends Struct.ComponentSchema {
     buttons: Schema.Attribute.Component<'shared.button', true>;
     highlight: Schema.Attribute.String;
     tag: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-    visual: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Text;
+    visual: Schema.Attribute.Media<'images' | 'videos'>;
   };
 }
 

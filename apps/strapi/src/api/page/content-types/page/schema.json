@@ -11,6 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
     "seo": {
       "type": "component",
       "component": "shared.seo",

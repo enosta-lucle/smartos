@@ -2,12 +2,13 @@ import { getSecret } from "astro:env/server";
 import { optimize } from "svgo";
 
 type APIOptions = {
-	method: "GET" | "POST" | "PUT" | "DELETE";
-	populate: string | "all";
-	pagination: {
+	method?: "GET" | "POST" | "PUT" | "DELETE";
+	populate?: string | "all";
+	pagination?: {
 		page: number;
 		size?: number;
 	};
+	filters?: Record<string, string>;
 };
 
 export async function api<T>(
@@ -18,14 +19,24 @@ export async function api<T>(
 		pagination: { page: 1, size: 50 },
 	},
 ) {
-	const { populate = "all", method, pagination } = options;
+	const { populate = "all", method, pagination, filters = {} } = options;
 
 	const query = new URLSearchParams({
 		populate,
-		"pagination[page]": pagination.page.toString(),
-		"pagination[pageSize]": pagination.size?.toString() || "50",
+		"pagination[page]": pagination?.page.toString() || "1",
+		"pagination[pageSize]": pagination?.size?.toString() || "50",
+		...Object.entries(filters).reduce<Record<string, string>>(
+			(acc, [key, value]) => {
+				acc[`filters[${key}][$eq]`] = value;
+
+				return acc;
+			},
+			{},
+		),
 	});
 	const url = `${getSecret("BASE_URL")}${endpoint}?${query}`;
+
+	console.log({ url });
 
 	try {
 		const response = await fetch(url, {

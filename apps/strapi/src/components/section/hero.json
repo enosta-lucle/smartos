@@ -9,7 +9,7 @@
       "type": "string"
     },
     "title": {
-      "type": "string"
+      "type": "text"
     },
     "highlight": {
       "type": "string"
@@ -23,7 +23,8 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "videos"
       ]
     }
   },
