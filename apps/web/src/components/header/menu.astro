@@ -1,10 +1,25 @@
 ---
+import { first, get } from "lodash-es";
+import Button from "$/components/button.astro";
+import { api } from "$/utils/client.util";
+
 type Props = {
   className?: string;
-  as: Element;
 };
 
-const { className, as: As = "nav" } = Astro.props;
+const { className } = Astro.props;
+
+const getHeaders = await api("/headers");
+const header = first(get(getHeaders, "data"));
+
+const button = get(header, "button");
+const menuItems = get(header, "menu");
+
+console.log(button);
 ---
 
-<As class={className}>Navigation menu</As>
+<nav class:list={className}>
+  <div class="absolute top-0">
+    <Button {...button ?? {}} />
+  </div>
+</nav>

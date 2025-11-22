@@ -36,8 +36,6 @@ export async function api<T>(
 	});
 	const url = `${getSecret("BASE_URL")}${endpoint}?${query}`;
 
-	console.log({ url });
-
 	try {
 		const response = await fetch(url, {
 			method,

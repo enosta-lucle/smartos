@@ -10,7 +10,6 @@ export function getStaticPaths() {
 const { slug = "" } = Astro.params;
 
 const page = await api("/pages", { filters: { slug: `/${slug}` } });
-console.log(JSON.stringify(get(page, ["data", 0, "sections"]), null, 2));
 ---
 
 <MainLayout>

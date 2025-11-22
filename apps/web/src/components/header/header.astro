@@ -4,19 +4,14 @@ import Menu from "$/components/header/menu.astro";
 import Toggler from "$/components/header/toggler.astro";
 import LogoText from "$/components/logo-text.astro";
 import { api } from "$/utils/client.util";
-
-const getHeaders = await api("/headers");
-const header = first(get(getHeaders, "data"));
-
-console.log({ header });
 ---
 
 <header class="h-13 flex items-center border-b border-gray-cool px-4 justify-between sticky top-0">
   <LogoText height={22} />
-  <Toggler id="toggle-checkbox" className="[&:checked~nav]:h-[calc(100vh-3.25rem)]" />
+
+  <Toggler className="[&:checked~nav]:h-[calc(100vh-3.25rem)]" />
 
   <Menu
-    as="nav"
-    className="absolute bg-white w-full top-full translate-y-px left-0 overflow-hidden h-0 transition-all"
+    className="absolute bg-white w-full top-full left-0 overflow-hidden h-0 border-b border-gray-cool transition-all duration-500"
   />
 </header>
