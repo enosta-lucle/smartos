@@ -3,6 +3,8 @@
 @plugin "@midudev/tailwind-animations";
 
 @theme {
+	--font-sans: "Inter", sans-serif;
+
 	--color-primary: #ffbe01;
 
 	--color-gray-cool: #eaecf0;
