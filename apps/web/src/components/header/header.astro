@@ -1,7 +1,7 @@
 ---
 import { first, get } from "lodash-es";
-import ButtonBurger from "$/components/button-burger.astro";
-import HeaderMenu from "$/components/header-menu.astro";
+import Menu from "$/components/header/menu.astro";
+import Toggler from "$/components/header/toggler.astro";
 import LogoText from "$/components/logo-text.astro";
 import { api } from "$/utils/client.util";
 
@@ -13,9 +13,9 @@ console.log({ header });
 
 <header class="h-13 flex items-center border-b border-gray-cool px-4 justify-between sticky top-0">
   <LogoText height={22} />
-  <ButtonBurger id="toggle-checkbox" />
+  <Toggler id="toggle-checkbox" />
 
-  <HeaderMenu as="nav" className="absolute" />
+  <Menu as="nav" className="absolute" />
 </header>
 
 <style>
