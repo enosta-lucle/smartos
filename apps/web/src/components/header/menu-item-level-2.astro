@@ -1,9 +1,22 @@
 ---
+import Icon from "$/components/icon.astro";
 import type { HeaderMenuItemLevel2 } from "$/types/strapi.type";
 
 type Props = HeaderMenuItemLevel2;
 
-const { id, title, href } = Astro.props;
+const { id, title, href, icon, description } = Astro.props;
 ---
 
-<li>{title}</li>
+<li>
+  <div
+    class:list={[
+      "p-2 flex gap-2",
+      {
+        "items-center": !description,
+      },
+    ]}
+  >
+    {icon && <Icon src={icon} className="size-6" />}
+    <span class="font-medium text-blue-abyss">{title}</span>
+  </div>
+</li>

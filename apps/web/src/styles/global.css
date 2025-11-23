@@ -20,13 +20,15 @@
 	--color-gray-steel: #50575e;
 
 	--color-slate-dusk: #475467;
-	--color-slate-steel: #344054;
+	--color-slate-cobalt: #344054;
 
-	--color-midnight-abyss: #0c111d;
+	--color-neutral-cloud: #ededed;
+
+	--color-blue-abyss: #0c111d;
 }
 
 @layer base {
 	body {
-		@apply text-base;
+		@apply text-base text-blue-abyss;
 	}
 }
