@@ -23,7 +23,33 @@ export type Button = {
 
 export type Header = {
 	button: Button;
-	menu: Button[];
+	menu: HeaderMenuItemLevel1[];
+};
+
+export type HeaderMenuItemLevel1 = {
+	id: number;
+	title: string;
+	href?: string;
+	children?: HeaderMenuItemLevel2[];
+};
+
+export type HeaderMenuItemLevel2 = {
+	id: number;
+	title: string;
+	href?: string;
+	icon?: string;
+	description?: string;
+	badge?: string;
+	children?: HeaderMenuItemLevel3[];
+};
+
+export type HeaderMenuItemLevel3 = {
+	id: number;
+	title: string;
+	href?: string;
+	icon?: string;
+	description?: string;
+	badge?: string;
 };
 
 //--------------

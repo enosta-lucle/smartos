@@ -1,0 +1,9 @@
+---
+import type { HeaderMenuItemLevel2 } from "$/types/strapi.type";
+
+type Props = HeaderMenuItemLevel2;
+
+const { id, title, href } = Astro.props;
+---
+
+<li>{title}</li>

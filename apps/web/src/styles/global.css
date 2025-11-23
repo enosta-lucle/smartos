@@ -3,12 +3,30 @@
 @plugin "@midudev/tailwind-animations";
 
 @theme {
+	/* Fonts */
 	--font-sans: "Inter", sans-serif;
 
+	--text-xs: 0.625rem; /* 10px */
+	--text-sm: 0.75rem; /* 12px */
+	--text-base: 0.875rem; /* 14px */
+	--text-md: 1rem; /* 16px */
+	--text-lg: 1.125rem; /* 18px */
+	--text-xl: 1.25rem; /* 20px */
+
+	/* Colors */
 	--color-primary: #ffbe01;
 
 	--color-gray-cool: #eaecf0;
 	--color-gray-steel: #50575e;
+
 	--color-slate-dusk: #475467;
+	--color-slate-steel: #344054;
+
 	--color-midnight-abyss: #0c111d;
+}
+
+@layer base {
+	body {
+		@apply text-base;
+	}
 }

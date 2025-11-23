@@ -1,0 +1,44 @@
+---
+import MenuItemLevel2 from "$/components/header/menu-item-level-2.astro";
+import ArrowDown from "$/components/icons/arrow-down.astro";
+import type { HeaderMenuItemLevel1 } from "$/types/strapi.type";
+
+type Props = HeaderMenuItemLevel1;
+
+const { id, title, href, children } = Astro.props;
+
+const inputId = `level-1--${id}`;
+---
+
+{
+  children ? (
+    <li>
+      <input type="checkbox" id={inputId} />
+
+      <label class:list={["flex gap-1.5 items-center"]} for={inputId}>
+        <span class="grow text-md font-bold">{title}</span>
+        <span class:list={["icon", "text-slate-steel -rotate-90 transition-all"]}>
+          <ArrowDown />
+        </span>
+      </label>
+
+      <ul>
+        {children.map((item) => (
+          <MenuItemLevel2 {...item} />
+        ))}
+      </ul>
+    </li>
+  ) : (
+    <li>
+      <a href={href}>{title}</a>
+    </li>
+  )
+}
+
+<style>
+  @reference "$/styles/global.css";
+
+  input:checked ~ label > span.icon {
+    @apply rotate-0;
+  }
+</style>
