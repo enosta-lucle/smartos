@@ -12,17 +12,41 @@
     "title": {
       "type": "string"
     },
+    "hasChild": {
+      "type": "boolean",
+      "default": false
+    },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "badge": {
       "type": "string"
     },
     "href": {
-      "type": "string"
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasChild"
+            },
+            false
+          ]
+        }
+      }
     },
     "children": {
       "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasChild"
+            },
+            true
+          ]
+        }
+      },
       "component": "header.menu-item-level-3",
       "repeatable": true
     }

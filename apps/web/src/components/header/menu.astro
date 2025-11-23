@@ -18,7 +18,7 @@ const button = get(header, "button");
 const menuItems = get(header, "menu");
 ---
 
-<nav class:list={className}>
+<nav class:list={[className]}>
   <div class="p-4 w-full">
     {button && <Button {...button} className="w-full font-semibold mb-3" />}
 

@@ -7,6 +7,7 @@ export interface HeaderMenuItemLevel1 extends Struct.ComponentSchema {
   };
   attributes: {
     children: Schema.Attribute.Component<'header.menu-item-level-2', true>;
+    hasChild: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     href: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -20,7 +21,8 @@ export interface HeaderMenuItemLevel2 extends Struct.ComponentSchema {
   attributes: {
     badge: Schema.Attribute.String;
     children: Schema.Attribute.Component<'header.menu-item-level-3', true>;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    hasChild: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     href: Schema.Attribute.String;
     icon: Schema.Attribute.Text &
       Schema.Attribute.CustomField<'plugin::icons-field.icon'>;

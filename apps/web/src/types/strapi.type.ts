@@ -29,6 +29,7 @@ export type Header = {
 export type HeaderMenuItemLevel1 = {
 	id: number;
 	title: string;
+	hasChild: boolean;
 	href?: string;
 	children?: HeaderMenuItemLevel2[];
 };
@@ -36,10 +37,11 @@ export type HeaderMenuItemLevel1 = {
 export type HeaderMenuItemLevel2 = {
 	id: number;
 	title: string;
-	href?: string;
 	icon?: string;
 	description?: string;
 	badge?: string;
+	hasChild: boolean;
+	href?: string;
 	children?: HeaderMenuItemLevel3[];
 };
 

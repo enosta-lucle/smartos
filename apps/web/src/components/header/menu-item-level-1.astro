@@ -5,7 +5,7 @@ import type { HeaderMenuItemLevel1 } from "$/types/strapi.type";
 
 type Props = HeaderMenuItemLevel1;
 
-const { id, title, href, children } = Astro.props;
+const { id, title, hasChild, href, children } = Astro.props;
 
 const inputId = `level-1--${id}`;
 ---
