@@ -1,0 +1,22 @@
+---
+import Icon from "$/components/icon.astro";
+import type { HeaderMenuItemLevel3 } from "$/types/strapi.type";
+
+type Props = HeaderMenuItemLevel3;
+
+const { title, href, icon, description, badge } = Astro.props;
+---
+
+<li class:list={["p-0 my-3"]}>
+  <a href={href} class="flex gap-2">
+    {icon && <Icon src={icon} className="size-6 shrink-0" />}
+
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="font-semibold">{title}</span>
+        {badge && <span class="badge bg-primary-200 text-sm">{badge}</span>}
+      </div>
+      <div class="text-gray-600 mt-2">{description}</div>
+    </div>
+  </a>
+</li>

@@ -19,7 +19,7 @@ const menuItems = get(header, "menu");
 ---
 
 <nav class:list={["translate-y-px", className]}>
-  <div class="p-4 w-full">
+  <div class="p-4 w-full max-h-[calc(100vh-3.25rem)] overflow-auto">
     {button && <Button {...button} className="w-full font-semibold" />}
 
     <ul class="mt-3">
