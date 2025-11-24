@@ -1,6 +1,7 @@
 ---
 import { first } from "lodash-es";
 import SectionHero from "$/components/section-hero.astro";
+import SectionMetrics from "$/components/section-metrics.astro";
 import SectionSolutions from "$/components/section-solutions.astro";
 import MainLayout from "$/layouts/main-layout.astro";
 import type { PageResponse } from "$/types/strapi.type";
@@ -34,6 +35,8 @@ const sectionComponents: Record<string, any> = {
       return <div>{section.__component}</div>;
     })
   }
+
+  <SectionMetrics />
   <pre>
     <!-- <code>{JSON.stringify(page, null, 2)}</code> -->
   </pre>
