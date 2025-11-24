@@ -1,0 +1,31 @@
+---
+import Button from "$/components/button.astro";
+import MotionVideo from "$/components/motion-video.astro";
+import type { SectionHero } from "$/types/strapi.type";
+
+type Props = SectionHero;
+
+const { title, highlight, buttons, visual, description } = Astro.props;
+
+const [titleBeforeHighlight, titleAfterHighlight] = title.split(highlight);
+---
+
+<section id="hero" class:list={["flex flex-col items-center px-4", "md:flex-row-reverse md:justify-evenly "]}>
+  <div>
+    <MotionVideo src={visual.url} className="w-76 h-50 md:w-150 md:h-97" />
+  </div>
+
+  <div class="flex flex-col">
+    <h1 class:list={["text-4xl font-bold whitespace-pre-line", "md:text-6xl md:leading-snug"]}>
+      {titleBeforeHighlight}
+      <span class="text-primary">{highlight}</span>
+      {titleAfterHighlight}
+    </h1>
+
+    <p class="text-gray-700 mt-4 text-md">{description}</p>
+
+    <div class="flex gap-4 mt-6">
+      {buttons.map((button) => <Button {...button} />)}
+    </div>
+  </div>
+</section>

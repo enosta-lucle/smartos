@@ -3,6 +3,27 @@ export type CollectionResponse<T> = {
 	meta: Meta;
 };
 
+export type Media = {
+	id: number;
+	documentId: string;
+	name: string;
+	alternativeText: string;
+	caption: string;
+	width: number;
+	height: number;
+	hash: string;
+	ext: string;
+	mime: string;
+	size: number;
+	url: string;
+	previewUrl: string;
+	provider: string;
+	provider_metadata: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+};
+
 export type Meta = {
 	pagination: Pagination;
 };
@@ -54,5 +75,30 @@ export type HeaderMenuItemLevel3 = {
 	badge?: string;
 };
 
+export type SectionHero = {
+	__component: string;
+	id: number;
+	highlight: string;
+	title: string;
+	description?: string;
+	buttons: Button[];
+	visual: Media;
+};
+
+export type Section = SectionHero;
+export type SEO = any;
+
+export type Page = {
+	id: number;
+	documentId: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	slug: string;
+	seo: SEO;
+	sections: Section[];
+};
+
 //--------------
 export type HeaderResponse = CollectionResponse<Header>;
+export type PageResponse = CollectionResponse<Page>;

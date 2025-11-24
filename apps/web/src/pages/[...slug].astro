@@ -1,6 +1,8 @@
 ---
-import { get } from "lodash-es";
+import { first } from "lodash-es";
+import SectionHero from "$/components/section-hero.astro";
 import MainLayout from "$/layouts/main-layout.astro";
+import type { PageResponse } from "$/types/strapi.type";
 import { api } from "$/utils/client.util";
 
 export function getStaticPaths() {
@@ -9,11 +11,22 @@ export function getStaticPaths() {
 
 const { slug = "" } = Astro.params;
 
-const page = await api("/pages", { filters: { slug: `/${slug}` } });
+const page = await api<PageResponse>("/pages", {
+  filters: { slug: `/${slug}` },
+});
+
+const { sections } = first(page?.data ?? []) ?? {};
 ---
 
 <MainLayout>
+  {
+    sections?.map((section) => {
+      if (section.__component === "section.hero") return <SectionHero {...section} />;
+
+      return <div>{section.__component}</div>;
+    })
+  }
   <pre>
-    <code>{JSON.stringify(slug, null, 2)}</code>
+    <!-- <code>{JSON.stringify(page, null, 2)}</code> -->
   </pre>
 </MainLayout>

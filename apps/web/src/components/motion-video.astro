@@ -1,0 +1,14 @@
+---
+import { getSecret } from "astro:env/server";
+
+type Props = {
+  src: string;
+  className?: string;
+};
+
+const { src, className } = Astro.props;
+---
+
+<video autoplay loop muted playsinline class={className}>
+  <source src={`${getSecret("BASE_URL")?.slice(0, -4)}${src}`} type="video/webm" />
+</video>
