@@ -1,6 +1,7 @@
 ---
 import { first } from "lodash-es";
 import SectionHero from "$/components/section-hero.astro";
+import SectionSolutions from "$/components/section-solutions.astro";
 import MainLayout from "$/layouts/main-layout.astro";
 import type { PageResponse } from "$/types/strapi.type";
 import { api } from "$/utils/client.util";
@@ -16,12 +17,19 @@ const page = await api<PageResponse>("/pages", {
 });
 
 const { sections } = first(page?.data ?? []) ?? {};
+
+const sectionComponents: Record<string, any> = {
+  "section.hero": SectionHero,
+  "section.solutions": SectionSolutions,
+};
 ---
 
 <MainLayout>
   {
     sections?.map((section) => {
-      if (section.__component === "section.hero") return <SectionHero {...section} />;
+      const Component = sectionComponents[section.__component];
+
+      if (Component) return <Component {...section} />;
 
       return <div>{section.__component}</div>;
     })

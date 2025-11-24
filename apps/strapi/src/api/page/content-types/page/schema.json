@@ -24,7 +24,8 @@
     "sections": {
       "type": "dynamiczone",
       "components": [
-        "section.hero"
+        "section.hero",
+        "section.solutions"
       ]
     }
   }

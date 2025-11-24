@@ -502,7 +502,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.DynamicZone<['section.hero']>;
+    sections: Schema.Attribute.DynamicZone<
+      ['section.hero', 'section.solutions']
+    >;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &

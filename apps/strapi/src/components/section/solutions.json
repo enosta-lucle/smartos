@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_solutions",
+  "info": {
+    "displayName": "Solutions"
+  },
+  "options": {},
+  "attributes": {
+    "solutions": {
+      "type": "component",
+      "component": "shared.solution",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

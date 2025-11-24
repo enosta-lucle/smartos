@@ -10,7 +10,10 @@ const { title, highlight, buttons, visual, description } = Astro.props;
 const [titleBeforeHighlight, titleAfterHighlight] = title.split(highlight);
 ---
 
-<section id="hero" class:list={["flex flex-col items-center px-4", "md:flex-row-reverse md:justify-evenly "]}>
+<section
+  id="hero"
+  class:list={["max-w-330 mx-auto flex flex-col items-center px-4", "md:flex-row-reverse md:justify-between "]}
+>
   <div>
     <MotionVideo src={visual.url} className="w-76 h-50 md:w-150 md:h-97" />
   </div>

@@ -85,6 +85,18 @@ export type SectionHero = {
 	visual: Media;
 };
 
+export type SectionSolutions = {
+	__component: string;
+	id: number;
+	solutions: Array<{
+		id: number;
+		title: string;
+		description: string;
+		image: Media;
+		button: Button;
+	}>;
+};
+
 export type Section = SectionHero;
 export type SEO = any;
 

@@ -60,6 +60,16 @@ export interface SectionHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionSolutions extends Struct.ComponentSchema {
+  collectionName: 'components_section_solutions';
+  info: {
+    displayName: 'Solutions';
+  };
+  attributes: {
+    solutions: Schema.Attribute.Component<'shared.solution', true>;
+  };
+}
+
 export interface SharedAddress extends Struct.ComponentSchema {
   collectionName: 'components_shared_addresses';
   info: {
@@ -221,6 +231,19 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSolution extends Struct.ComponentSchema {
+  collectionName: 'components_shared_solutions';
+  info: {
+    displayName: 'Solution';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'shared.button', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -228,6 +251,7 @@ declare module '@strapi/strapi' {
       'header.menu-item-level-2': HeaderMenuItemLevel2;
       'header.menu-item-level-3': HeaderMenuItemLevel3;
       'section.hero': SectionHero;
+      'section.solutions': SectionSolutions;
       'shared.address': SharedAddress;
       'shared.award': SharedAward;
       'shared.brand': SharedBrand;
@@ -239,6 +263,7 @@ declare module '@strapi/strapi' {
       'shared.process': SharedProcess;
       'shared.question': SharedQuestion;
       'shared.seo': SharedSeo;
+      'shared.solution': SharedSolution;
     }
   }
 }

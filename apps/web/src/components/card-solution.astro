@@ -1,0 +1,37 @@
+---
+import type { SectionSolutions } from "$/types/strapi.type";
+
+type Props = SectionSolutions["solutions"][number] & {
+  invertBg?: boolean;
+};
+
+const { title, description, image, invertBg = false } = Astro.props;
+---
+
+<div>
+  <div>
+    <span class="text-lg font-bold">{title}</span>
+  </div>
+
+  <p class="mt-2 text-gray-700">{description}</p>
+
+  <div class="relative aspect-392/218 mt-3">
+    <svg
+      width="392"
+      height="218"
+      viewBox="0 0 392 218"
+      fill="none"
+      class="absolute inset-0 size-full"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 209.73C0 214.149 3.58172 217.73 8 217.73H335.676C337.804 217.73 339.844 216.883 341.345 215.375L389.669 166.841C391.162 165.342 392 163.312 392 161.196V8C392 3.58173 388.418 0 384 0H8C3.58172 0 0 3.58173 0 8V209.73Z"
+        class={["fill-primary", "fill-secondary"][+invertBg]}></path>
+      <path
+        d="M392 215.73C392 216.835 391.104 217.73 390 217.73L356.765 217.73C354.992 217.73 354.096 215.594 355.338 214.329L372.705 196.634L388.6 181.061C389.866 179.821 392 180.718 392 182.49L392 215.73Z"
+        class={["fill-secondary", "fill-primary"][+invertBg]}></path>
+    </svg>
+
+    Image
+  </div>
+</div>
