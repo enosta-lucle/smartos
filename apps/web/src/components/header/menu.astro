@@ -20,9 +20,9 @@ const menuItems = get(header, "menu");
 
 <nav class:list={["translate-y-px", className]}>
   <div class="p-4 w-full">
-    {button && <Button {...button} className="w-full font-semibold mb-3" />}
+    {button && <Button {...button} className="w-full font-semibold" />}
 
-    <ul>
+    <ul class="mt-3">
       {menuItems?.map((item) => <MenuItemLevel1 {...item} />)}
     </ul>
   </div>

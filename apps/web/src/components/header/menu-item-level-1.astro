@@ -5,51 +5,36 @@ import type { HeaderMenuItemLevel1 } from "$/types/strapi.type";
 
 type Props = HeaderMenuItemLevel1;
 
-const { id, title, hasChild, href, children } = Astro.props;
-
-const inputId = `level-1--${id}`;
+const { title, hasChild, href, children } = Astro.props;
 ---
 
-<Fragment>
-  {
-    children ? (
-      <li>
-        <input
-          checked
-          type="checkbox"
-          id={inputId}
-          class:list={["hidden", "[&:checked~div]:grid-rows-[minmax(0,1fr)]"]}
-        />
+{
+  hasChild && (
+    <li class="collapse">
+      <input type="checkbox" checked class="[&:checked~.collapse-title>svg]:rotate-180" />
 
-        <label class:list={["flex gap-1.5 items-center"]} for={inputId}>
-          <span class="grow typo-body-2">{title}</span>
-          <span class:list={["icon", "text-gray-700 -rotate-180 transition-all"]}>
-            <ArrowDown />
-          </span>
-        </label>
+      <div class="collapse-title p-0 text-md font-bold flex items-center justify-between">
+        <span>{title}</span>
+        <ArrowDown className="transition-transform" />
+      </div>
 
-        <div class:list={["overflow-hidden grid grid-rows-[minmax(0,0fr)] transition-[grid-template-rows]"]}>
-          <ul class="mt-3">
-            {children.map((item) => (
-              <MenuItemLevel2 {...item} />
-            ))}
-          </ul>
-        </div>
-      </li>
-    ) : (
-      <li>
-        <a href={href}>{title}</a>
-      </li>
-    )
-  }
+      <div class="collapse-content p-0">
+        <ul class="mt-2">
+          {children?.map((item) => (
+            <MenuItemLevel2 {...item} />
+          ))}
+        </ul>
+      </div>
+    </li>
+  )
+}
 
-  <hr class="my-3 border-neutral" />
-</Fragment>
+{
+  !hasChild && (
+    <li class="text-md font-bold">
+      <a href={href}>{title}</a>
+    </li>
+  )
+}
 
-<style>
-  @reference "$/styles/global.css";
-
-  input:checked ~ label > span.icon {
-    @apply rotate-0;
-  }
-</style>
+<hr class="border-neutral my-3" />

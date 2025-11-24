@@ -63,7 +63,7 @@
 
 	--radius-selector: 0.5rem;
 	--radius-field: 0.25rem;
-	--radius-box: 1rem;
+	--radius-box: 0rem;
 
 	--size-selector: 0.25rem;
 	--size-field: 0.25rem;
@@ -76,15 +76,5 @@
 @layer base {
 	body {
 		@apply text-base;
-	}
-}
-
-@layer utilities {
-	.typo-body-2 {
-		@apply text-md font-bold;
-	}
-
-	.typo-body-3 {
-		@apply font-medium;
 	}
 }
