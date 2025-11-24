@@ -14,7 +14,7 @@ const { as: As = Fragment, id = "toggle-checkbox", className } = Astro.props;
   <label for={id} class:list={["toggle-btn", "size-6 relative"]}>
     <div
       class:list={[
-        "absolute top-1/2 left-1/2 -translate-1/2 bg-gray-steel w-5 h-0.5 rounded-full transition-all",
+        "absolute top-1/2 left-1/2 -translate-1/2 bg-gray-700 w-5 h-0.5 rounded-full transition-all",
         "before:-translate-y-1.5",
         "after:translate-y-1.5",
       ]}
@@ -29,7 +29,7 @@ const { as: As = Fragment, id = "toggle-checkbox", className } = Astro.props;
   .toggle-btn > div {
     &::before,
     &::after {
-      @apply content-[''] block w-full h-0.5 bg-gray-steel rounded-full absolute inset-0 transition-all;
+      @apply content-[''] block w-full h-0.5 bg-gray-700 rounded-full absolute inset-0 transition-all;
     }
   }
 

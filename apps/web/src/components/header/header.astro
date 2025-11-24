@@ -4,7 +4,7 @@ import Toggler from "$/components/header/toggler.astro";
 import LogoText from "$/components/logo-text.astro";
 ---
 
-<header class="h-13 flex items-center border-b border-gray-cool px-4 justify-between sticky top-0">
+<header class="h-13 flex items-center border-b border-gray-200 px-4 justify-between sticky top-0">
   <LogoText height={22} />
 
   <Toggler className="[&:checked~nav]:grid-rows-[minmax(0,1fr)]" />
@@ -13,5 +13,3 @@ import LogoText from "$/components/logo-text.astro";
     className="absolute top-full left-0 w-full grid grid-rows-[minmax(0,0fr)] overflow-hidden bg-white transition-[grid-template-rows]"
   />
 </header>
-
-<style></style>
