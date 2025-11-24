@@ -37,6 +37,7 @@ const { title, href, icon, description, hasChild, children, badge } = Astro.prop
           "border-l-0 border-primary transition-all",
           "md:w-76",
           description ? "md:h-33" : "md:h-10",
+          "[&:hover~.collapse-content]:block",
         ]}
       >
         {icon && <Icon src={icon} className="size-6 shrink-0" />}
@@ -56,11 +57,13 @@ const { title, href, icon, description, hasChild, children, badge } = Astro.prop
         class:list={[
           "collapse-content",
           "p-0 mt-1",
-          "md:w-max md:max-w-xs md:left-full md:top-0 md:h-full md:contents",
+          "md:m-0",
+          "md:w-max md:max-w-xs md:h-full md:contents",
           "md:hidden",
+          "md:hover:block",
         ]}
       >
-        <ul class="pl-10">
+        <ul class="pl-10 md:p-0">
           {children?.map((item) => (
             <MenuItemLevel3 {...item} />
           ))}

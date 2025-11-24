@@ -7,7 +7,7 @@ type Props = HeaderMenuItemLevel3;
 const { title, href, icon, description, badge } = Astro.props;
 ---
 
-<li class:list={["p-0 my-3"]}>
+<li class:list={["p-0 my-3", "hover:bg-gray-100", "md:p-3 md:my-0"]}>
   <a href={href} class="flex gap-2">
     {icon && <Icon src={icon} className="size-6 shrink-0" />}
 
