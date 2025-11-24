@@ -10,13 +10,19 @@ const { title, href, icon, description, hasChild, children, badge } = Astro.prop
 
 {
   hasChild && (
-    <li class="collapse">
+    <li
+      class:list={[
+        "collapse",
+        "my-3 transition-all border-primary",
+        "md:hover:bg-gray-100 md:hover:px-2 md:hover:border-l-4",
+      ]}
+    >
       <input
         type="checkbox"
-        class:list={["p-0", "[&:checked~.collapse-title]:border-l-4 [&:checked~.collapse-title]:pl-2"]}
+        class:list={["p-0", "[&:checked~.collapse-title]:border-l-4 [&:checked~.collapse-title]:px-2", "md:hidden"]}
       />
 
-      <div class:list={["collapse-title", "p-0 flex gap-2", "border-l-0 border-primary transition-all"]}>
+      <div class:list={["collapse-title", "p-0 py-2 flex gap-2", "border-l-0 border-primary transition-all"]}>
         {icon && <Icon src={icon} className="size-6 shrink-0" />}
 
         <div>
@@ -41,7 +47,7 @@ const { title, href, icon, description, hasChild, children, badge } = Astro.prop
 
 {
   !hasChild && (
-    <li class="my-3">
+    <li class:list={["my-3 transition-all border-primary", "md:hover:bg-gray-100 md:hover:px-2 md:hover:border-l-4"]}>
       <a href={href} class="h-10 font-medium flex gap-2 items-center cursor-pointer">
         {icon && <Icon src={icon} className="size-6 shrink-0" />}
         <span>{title}</span>

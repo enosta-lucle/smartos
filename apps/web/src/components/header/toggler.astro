@@ -11,7 +11,7 @@ const { as: As = Fragment, id = "toggle-checkbox", className } = Astro.props;
 <As>
   <input id={id} type="checkbox" class="hidden" class:list={className} checked />
 
-  <label for={id} class:list={["toggle-btn", "size-6 relative"]}>
+  <label for={id} class:list={["toggle-btn", "size-6 relative", "md:hidden"]}>
     <div
       class:list={[
         "absolute top-1/2 left-1/2 -translate-1/2 bg-gray-700 w-5 h-0.5 rounded-full transition-all",

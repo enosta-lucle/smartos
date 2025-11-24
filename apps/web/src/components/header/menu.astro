@@ -18,12 +18,21 @@ const button = get(header, "button");
 const menuItems = get(header, "menu");
 ---
 
-<nav class:list={["translate-y-px", className]}>
-  <div class="p-4 w-full max-h-[calc(100vh-3.25rem)] overflow-auto">
-    {button && <Button {...button} className="w-full font-semibold" />}
+<nav class:list={["translate-y-px", "md:static md:h-full md:transform-none md:bg-transparent", className]}>
+  <div
+    class:list={[
+      "p-4 w-full max-h-[calc(100vh-3.25rem)] overflow-auto",
+      "md:flex md:flex-row-reverse md:p-0 md:items-center md:justify-between md:overflow-visible",
+    ]}
+  >
+    <div class="md:w-52 md:flex md:justify-end">
+      {button && <Button {...button} className="w-full font-semibold md:w-max md:min-w-32" />}
+    </div>
 
-    <ul class="mt-3">
+    <ul class:list={["mt-3", "md:flex md:gap-8 md:m-0 md:h-full md:items-center"]}>
       {menuItems?.map((item) => <MenuItemLevel1 {...item} />)}
     </ul>
+
+    <div class:list={["size-0 hidden", "md:block invisible"]}></div>
   </div>
 </nav>

@@ -10,16 +10,34 @@ const { title, hasChild, href, children } = Astro.props;
 
 {
   hasChild && (
-    <li class="collapse">
-      <input type="checkbox" checked class="[&:checked~.collapse-title>svg]:rotate-180" />
+    <li class:list={["collapse", "md:collapse-open", "md:relative md:overflow-visible"]}>
+      <input type="checkbox" checked class:list={["[&:checked~.collapse-title>svg]:rotate-180", "md:hidden"]} />
 
-      <div class="collapse-title p-0 text-md font-bold flex items-center justify-between">
-        <span>{title}</span>
-        <ArrowDown className="transition-transform" />
+      <div
+        class:list={[
+          "collapse-title",
+          "p-0 text-md font-bold flex items-center justify-between",
+          "md:gap-1 md:w-max",
+          "md:[&:hover~.collapse-content]:block",
+        ]}
+      >
+        <span class:list={["md:text-gray-700 md:font-normal"]}>{title}</span>
+        <ArrowDown className="transition-transform md:rotate-0!" />
       </div>
 
-      <div class="collapse-content p-0">
-        <ul class="mt-2">
+      <div
+        class:list={[
+          "collapse-content",
+          "p-0",
+          "md:bg-white md:px-4 md:rounded-lg md:border md:border-neutral",
+          "md:animate-fade-in md:animate-duration-300",
+          "md:hover:block",
+          "md:hidden",
+          "md:absolute md:top-full",
+          "md:w-max md:max-w-sm",
+        ]}
+      >
+        <ul class:list={["mt-2", "md:m-0"]}>
           {children?.map((item) => (
             <MenuItemLevel2 {...item} />
           ))}
@@ -37,4 +55,4 @@ const { title, hasChild, href, children } = Astro.props;
   )
 }
 
-<hr class="border-neutral my-3" />
+<hr class:list={["border-neutral my-3", "md:hidden"]} />
