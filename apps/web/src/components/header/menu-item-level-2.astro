@@ -1,6 +1,7 @@
 ---
 import MenuItemLevel3 from "$/components/header/menu-item-level-3.astro";
 import Icon from "$/components/icon.astro";
+import ArrowDown from "$/components/icons/arrow-down.astro";
 import type { HeaderMenuItemLevel2 } from "$/types/strapi.type";
 
 type Props = HeaderMenuItemLevel2;
@@ -13,28 +14,52 @@ const { title, href, icon, description, hasChild, children, badge } = Astro.prop
     <li
       class:list={[
         "collapse",
+        "md:collapse-open md:overflow-visible",
         "my-3 transition-all border-primary",
-        "md:hover:bg-gray-100 md:hover:px-2 md:hover:border-l-4",
+        "md:[&:hover_.collapse-title]:bg-gray-100 md:[&:hover_.collapse-title]:px-2 md:[&:hover_.collapse-title]:border-l-4",
+        "md:flex",
       ]}
     >
       <input
         type="checkbox"
-        class:list={["p-0", "[&:checked~.collapse-title]:border-l-4 [&:checked~.collapse-title]:px-2", "md:hidden"]}
+        class:list={[
+          "p-0",
+          "[&:checked~.collapse-title]:border-l-4 [&:checked~.collapse-title]:pl-2 [&:checked~.collapse-title]:bg-gray-100",
+          "[&:checked~.collapse-title>div_svg]:rotate-180",
+          "md:hidden",
+        ]}
       />
 
-      <div class:list={["collapse-title", "p-0 py-2 flex gap-2", "border-l-0 border-primary transition-all"]}>
+      <div
+        class:list={[
+          "collapse-title",
+          "p-0 py-2 pr-2 flex gap-2",
+          "border-l-0 border-primary transition-all",
+          "md:w-76",
+          description ? "md:h-33" : "md:h-10",
+        ]}
+      >
         {icon && <Icon src={icon} className="size-6 shrink-0" />}
 
-        <div>
+        <div class="w-full">
           <div class="flex items-center gap-2">
             <span class="font-semibold">{title}</span>
             {badge && <span class="badge bg-primary-200 text-sm">{badge}</span>}
+            <div class="grow" />
+            <ArrowDown className="shrink-0 transition-all md:hidden" />
           </div>
           <div class="text-gray-600 mt-2">{description}</div>
         </div>
       </div>
 
-      <div class="collapse-content p-0 mt-1">
+      <div
+        class:list={[
+          "collapse-content",
+          "p-0 mt-1",
+          "md:w-max md:max-w-xs md:left-full md:top-0 md:h-full md:contents",
+          "md:hidden",
+        ]}
+      >
         <ul class="pl-10">
           {children?.map((item) => (
             <MenuItemLevel3 {...item} />
@@ -47,7 +72,13 @@ const { title, href, icon, description, hasChild, children, badge } = Astro.prop
 
 {
   !hasChild && (
-    <li class:list={["my-3 transition-all border-primary", "md:hover:bg-gray-100 md:hover:px-2 md:hover:border-l-4"]}>
+    <li
+      class:list={[
+        "my-3 transition-all border-primary",
+        "md:hover:bg-gray-100 md:hover:px-2 md:hover:border-l-4",
+        "md:w-max md:max-w-xs",
+      ]}
+    >
       <a href={href} class="h-10 font-medium flex gap-2 items-center cursor-pointer">
         {icon && <Icon src={icon} className="size-6 shrink-0" />}
         <span>{title}</span>
