@@ -14,10 +14,10 @@ const { variant = "primary", corners = "bottom", class: className } = Astro.prop
   class:list={[
     "relative",
     "p-4 rounded-md overflow-hidden",
-    "[&>svg]:pointer-events-none",
+    "[&>svg]:-z-10",
     corners === "top-bottom"
-      ? `bg-[linear-gradient(135deg,transparent_10%,var(--color-${variant})_10%,var(--color-${variant})_90%,transparent_90%)]`
-      : `bg-[linear-gradient(135deg,var(--color-${variant})_0%,var(--color-${variant})_90%,transparent_90%)]`,
+      ? `bg-[linear-gradient(135deg,transparent_35px,var(--color-${variant})_35px,var(--color-${variant})_calc(100%-35px),transparent_calc(100%-35px))]`
+      : `bg-[linear-gradient(135deg,var(--color-${variant})_0%,var(--color-${variant})_calc(100%-35px),transparent_calc(100%-35px))]`,
     className,
   ]}
 >
