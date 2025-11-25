@@ -56,8 +56,4 @@
   .container {
     @apply max-w-330 mx-auto px-4;
   }
-
-  .container-fluid {
-    @apply max-w-1280 mx-auto;
-  }
 }
