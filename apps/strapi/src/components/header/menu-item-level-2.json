@@ -49,6 +49,19 @@
       },
       "component": "header.menu-item-level-3",
       "repeatable": true
+    },
+    "column": {
+      "type": "integer",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasChild"
+            },
+            false
+          ]
+        }
+      }
     }
   },
   "config": {}

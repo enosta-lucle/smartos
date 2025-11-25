@@ -21,6 +21,7 @@ export interface HeaderMenuItemLevel2 extends Struct.ComponentSchema {
   attributes: {
     badge: Schema.Attribute.String;
     children: Schema.Attribute.Component<'header.menu-item-level-3', true>;
+    column: Schema.Attribute.Integer;
     description: Schema.Attribute.Text;
     hasChild: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     href: Schema.Attribute.String;

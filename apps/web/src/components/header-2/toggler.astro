@@ -1,0 +1,30 @@
+---
+type Props = {
+  id?: string;
+};
+
+const { id } = Astro.props;
+---
+
+<div id={id} class:list={["px-[2.25px] py-[6.25px] size-6", "grid items-center", "cursor-pointer"]}>
+  <div class:list={["toggler-inner", "h-[1.5px] bg-gray-700 rounded-full transition-all", "relative"]}></div>
+</div>
+
+<style>
+  @reference "$/styles/global.css";
+
+  div > div {
+    &::before,
+    &::after {
+      @apply content-[''] absolute w-full h-[1.5px] bg-gray-700 rounded-full transition-all;
+    }
+
+    &::before {
+      @apply -translate-y-1.25;
+    }
+
+    &::after {
+      @apply translate-y-1.25;
+    }
+  }
+</style>

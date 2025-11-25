@@ -1,0 +1,22 @@
+---
+import MenuMega from "$/components/header-2/menu-mega.astro";
+import type { HeaderMenuItemLevel1 } from "$/types/strapi.type";
+
+type Props = {
+  items: HeaderMenuItemLevel1[];
+};
+
+const { items } = Astro.props;
+---
+
+<ul class:list={["flex gap-4"]}>
+  {
+    items.map((lv1) => (
+      <li class:list={["relative", "group/menu"]}>
+        <div>{lv1.title}</div>
+
+        <MenuMega items={lv1.children ?? []} />
+      </li>
+    ))
+  }
+</ul>

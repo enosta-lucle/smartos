@@ -1,0 +1,57 @@
+---
+import { first, get } from "lodash-es";
+import Button from "$/components/button.astro";
+import MenuNavigation from "$/components/header-2/menu-navigation.astro";
+import Toggler from "$/components/header-2/toggler.astro";
+import LogoText from "$/components/logo-text.astro";
+import type { HeaderResponse } from "$/types/strapi.type";
+import { api } from "$/utils/client.util";
+
+const getHeaders = await api<HeaderResponse>("/headers");
+const header = first(get(getHeaders, "data"));
+
+const button = get(header, "button");
+const menuItems = get(header, "menu");
+---
+
+<header
+  class:list={["h-13 flex justify-between items-center px-4", "md:grid md:grid-cols-[1fr_auto_1fr]", "bg-red-100"]}
+>
+  <input id="show-nav" type="checkbox" class:list={["hidden"]} />
+
+  <LogoText height={22} />
+
+  <div class:list={["md:contents"]}>
+    <MenuNavigation items={menuItems ?? []} />
+
+    <div class:list={["md:shrink-0 md:flex md:justify-end"]}>
+      {button && <Button className="min-w-32" {...button} />}
+    </div>
+  </div>
+
+  <label for="show-nav" class="md:hidden">
+    <Toggler />
+  </label>
+</header>
+
+<style>
+  @reference "$/styles/global.css";
+
+  header {
+    input:checked ~ label .toggler-inner {
+      @apply bg-transparent;
+
+      &::before {
+        @apply translate-y-0 rotate-45;
+      }
+
+      &::after {
+        @apply translate-y-0 -rotate-45;
+      }
+    }
+  }
+</style>
+
+<p>
+  {JSON.stringify(menuItems)}
+</p>
