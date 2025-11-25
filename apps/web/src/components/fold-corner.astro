@@ -1,0 +1,49 @@
+---
+type Props = {
+  variant?: "primary" | "secondary";
+  corners?: "top-bottom" | "bottom";
+  class?: string;
+};
+
+const { variant = "primary", corners = "bottom", class: className } = Astro.props;
+
+// bg-[linear-gradient(135deg,var(--color-secondary)_0%,var(--color-secondary)_90%,transparent_90%)]
+---
+
+<div
+  class:list={[
+    "relative",
+    "p-4 rounded-md overflow-hidden",
+    "[&>svg]:pointer-events-none",
+    corners === "top-bottom"
+      ? `bg-[linear-gradient(135deg,transparent_10%,var(--color-${variant})_10%,var(--color-${variant})_90%,transparent_90%)]`
+      : `bg-[linear-gradient(135deg,var(--color-${variant})_0%,var(--color-${variant})_90%,transparent_90%)]`,
+    className,
+  ]}
+>
+  {
+    corners === "top-bottom" && (
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" class="absolute top-0 left-0">
+        <path
+          d="M0 50V39.323C0 37.201 0.842 35.167 2.342 33.667L33.652 2.345C35.152 0.844 37.188 0 39.31 0H50V50H0Z"
+          fill={`var(--color-${variant})`}
+        />
+        <path
+          d="M0 21.172C0 22.954 2.154 23.846 3.414 22.586L13.394 12.606L22.586 3.414C23.846 2.155 22.953 0 21.172 0H2C0.895 0 0 0.896 0 2V21.172Z"
+          fill={`var(--color-${variant === "primary" ? "secondary" : "primary"})`}
+        />
+      </svg>
+    )
+  }
+
+  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" class="absolute bottom-0 right-0 rotate-180">
+    <path
+      d="M0 50V39.323C0 37.201 0.842 35.167 2.342 33.667L33.652 2.345C35.152 0.844 37.188 0 39.31 0H50V50H0Z"
+      fill={`var(--color-${variant})`}></path>
+    <path
+      d="M0 21.172C0 22.954 2.154 23.846 3.414 22.586L13.394 12.606L22.586 3.414C23.846 2.155 22.953 0 21.172 0H2C0.895 0 0 0.896 0 2V21.172Z"
+      fill={`var(--color-${variant === "primary" ? "secondary" : "primary"})`}></path>
+  </svg>
+
+  <slot />
+</div>

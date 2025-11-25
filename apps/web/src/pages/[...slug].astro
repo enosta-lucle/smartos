@@ -1,9 +1,8 @@
 ---
 import { first } from "lodash-es";
-
+import FoldCorner from "$/components/fold-corner.astro";
 import SectionHero from "$/components/sections/hero.astro";
 import SectionSolutions from "$/components/sections/solutions.astro";
-
 import MainLayout from "$/layouts/main-layout.astro";
 import type { PageResponse } from "$/types/strapi.type";
 import { api } from "$/utils/client.util";
@@ -42,9 +41,16 @@ const { sections } = first(page?.data ?? []) ?? {};
 
   <SectionSolutions class:list={["mt-12"]} />
 
+  <div class="flex gap-2 w-full mt-10 *:grow">
+    <FoldCorner variant="primary" corners="top-bottom" class:list={["h-32"]}> hello </FoldCorner>
+    <FoldCorner variant="primary" corners="bottom" class:list={["h-32"]}> hello </FoldCorner>
+    <FoldCorner variant="secondary" corners="top-bottom" class:list={["h-32"]}> hello </FoldCorner>
+    <FoldCorner variant="secondary" corners="bottom" class:list={["h-32"]}> hello </FoldCorner>
+  </div>
+
+  <div class="size-100 test"></div>
   <!-- <div>
+
     {JSON.stringify(sections)}
   </div> -->
-
-  <div class="w-100 h-20 bg-rounded-corner-tr">Hello</div>
 </MainLayout>
