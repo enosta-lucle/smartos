@@ -1,6 +1,7 @@
 ---
 import { first } from "lodash-es";
 
+import SectionClients from "$/components/sections/clients.astro";
 import SectionHero from "$/components/sections/hero.astro";
 import SectionMetrics from "$/components/sections/metrics.astro";
 import SectionSolutions from "$/components/sections/solutions.astro";
@@ -44,6 +45,8 @@ const { sections } = first(page?.data ?? []) ?? {};
   <SectionSolutions class:list={["mt-12"]} />
 
   <SectionMetrics class:list={["mt-10"]} />
+
+  <SectionClients class:list={["mt-16", "md:mt-25"]} />
 
   <div class="w-2 h-[500px]"></div>
 </MainLayout>
