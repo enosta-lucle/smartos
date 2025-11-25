@@ -1,5 +1,6 @@
 ---
 import { first } from "lodash-es";
+import SectionClients from "$/components/section-clients.astro";
 import SectionHero from "$/components/section-hero.astro";
 import SectionMetrics from "$/components/section-metrics.astro";
 import SectionSolutions from "$/components/section-solutions.astro";
@@ -37,6 +38,8 @@ const sectionComponents: Record<string, any> = {
   }
 
   <SectionMetrics />
+  <SectionClients />
+
   <pre>
     <!-- <code>{JSON.stringify(page, null, 2)}</code> -->
   </pre>

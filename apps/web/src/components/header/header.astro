@@ -5,7 +5,10 @@ import LogoText from "$/components/logo-text.astro";
 ---
 
 <header
-  class:list={["h-13 flex items-center border-b border-gray-200 px-4 justify-between sticky top-0 bg-white", "md:h-20"]}
+  class:list={[
+    "z-1000 h-13 flex items-center border-b border-gray-200 px-4 justify-between sticky top-0 bg-white",
+    "md:h-20",
+  ]}
 >
   <div class="md:w-52">
     <LogoText height={22} />
