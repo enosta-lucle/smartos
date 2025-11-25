@@ -1,5 +1,5 @@
-<section class:list={["relative max-w-330 mx-auto px-4 mb-10"]}>
-  <div class="absolute inset-0 h-40 w-full">
+<section class:list={["relative mt-10 px-4", "max-w-330 mx-auto"]}>
+  <div class="absolute top-0 left-4 right-4 bottom-0 -z-10">
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" class="absolute top-0 left-0">
       <path
         d="M0 50V39.323C0 37.201 0.842 35.167 2.342 33.667L33.652 2.345C35.152 0.844 37.188 0 39.31 0H50V50H0Z"
@@ -21,5 +21,30 @@
     <div class="w-[calc(100%-100px)] h-full bg-primary absolute left-12.5 right-12.5"></div>
     <div class="absolute top-12.5 bottom-0 left-0 w-12.5 bg-primary rounded-bl-md"></div>
     <div class="absolute bottom-12.5 top-0 right-0 w-12.5 bg-primary rounded-tr-md"></div>
+  </div>
+
+  <!-- Content -->
+
+  <div
+    class:list={[
+      "min-h-40 flex flex-col px-6 py-12",
+      "*:not-first:border-t *:not-first:border-primary-700 *:py-10",
+      "md:flex-row md:*:not-first:border-t-0 md:*:not-first:border-l md:*:w-1/3",
+    ]}
+  >
+    <div class="flex flex-col gap-2 items-center">
+      <span class="text-lg">Tăng tỉ lệ lấp đầy</span>
+      <span class="text-4xl font-medium">94%</span>
+    </div>
+
+    <div class="flex flex-col gap-2 items-center">
+      <span class="text-lg">Hệ thống đang quản lý</span>
+      <span class="text-4xl font-medium">10,000+</span>
+    </div>
+
+    <div class="flex flex-col gap-2 items-center">
+      <span class="text-lg">Tiết kiệm mỗi nhân sự vận hành</span>
+      <span class="text-4xl font-medium">2h/ ngày</span>
+    </div>
   </div>
 </section>
