@@ -1,5 +1,6 @@
 ---
 import { range } from "lodash-es";
+import IconFlash from "$/assets/flash.svg";
 ---
 
 <section class:list={["bg-secondary bg-repeat bg-contain", "py-15.5", Astro.props.class]}>
@@ -9,9 +10,15 @@ import { range } from "lodash-es";
     <div class="carousel carousel-center max-w-full mt-12">
       {
         range(5).map((idx) => (
-          <div class:list={["carousel-item", "bg-cover", "w-63 h-78 mx-6 rounded-md p-4 pb-8 flex flex-col gap-8"]}>
-            <div class="size-6 bg-gray-300 rounded-md" />
-            <h3 class="font-bold text-white text-lg">Hợp đồng điện tử</h3>
+          <div class:list={["carousel-item", "bg-cover", "w-63 h-78 mx-6 rounded-md p-4 pb-8 flex flex-col"]}>
+            <IconFlash class="size-6 text-white" />
+            <h3 class="font-bold text-white text-lg mt-2">Hợp đồng điện tử</h3>
+
+            <div class="grid grid-cols-2 gap-8 w-max mt-auto">
+              {range(4).map((idx) => (
+                <div class="w-23.5 h-7.5 rounded-md bg-gray-100/50" />
+              ))}
+            </div>
           </div>
         ))
       }
