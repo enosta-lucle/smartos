@@ -5,49 +5,59 @@
 @plugin "@midudev/tailwind-animations";
 
 @theme {
-	--font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
 
-	--text-xs: 0.625rem;
-	--text-sm: 0.75rem;
-	--text-base: 0.875rem;
-	--text-md: 1rem;
-	--text-lg: 1.125rem;
-	--text-xl: 1.25rem;
+  --text-xs: 0.625rem;
+  --text-sm: 0.75rem;
+  --text-base: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
 
-	--color-primary: #ffbe01;
-	--color-primary-50: #fffdf5;
-	--color-primary-100: #fff9e6;
-	--color-primary-200: #ffe497;
-	--color-primary-300: #ffd98c;
-	--color-primary-400: #ffc92c;
-	--color-primary-500: var(--color-primary);
-	--color-primary-600: #bd8c00;
-	--color-primary-700: #9c7401;
+  --color-primary: #ffbe01;
+  --color-primary-50: #fffdf5;
+  --color-primary-100: #fff9e6;
+  --color-primary-200: #ffe497;
+  --color-primary-300: #ffd98c;
+  --color-primary-400: #ffc92c;
+  --color-primary-500: var(--color-primary);
+  --color-primary-600: #bd8c00;
+  --color-primary-700: #9c7401;
 
-	--color-secondary: #012063;
-	--color-secondary-50: #bce0fa;
-	--color-secondary-100: #a5d3eb;
-	--color-secondary-200: #80b0dc;
-	--color-secondary-300: #0f80dc;
-	--color-secondary-400: #0846c1;
-	--color-secondary-500: var(--color-secondary);
-	--color-secondary-600: #01184c;
-	--color-secondary-700: #010d28;
+  --color-secondary: #012063;
+  --color-secondary-50: #bce0fa;
+  --color-secondary-100: #a5d3eb;
+  --color-secondary-200: #80b0dc;
+  --color-secondary-300: #0f80dc;
+  --color-secondary-400: #0846c1;
+  --color-secondary-500: var(--color-secondary);
+  --color-secondary-600: #01184c;
+  --color-secondary-700: #010d28;
 
-	--color-gray-50: #f9fafb;
-	--color-gray-100: #f2f4f7;
-	--color-gray-200: #eaecf0;
-	--color-gray-300: #d0d5dd;
-	--color-gray-400: #98a2b3;
-	--color-gray-500: #667085;
-	--color-gray-600: #475467;
-	--color-gray-700: #344054;
-	--color-gray-800: #182230;
-	--color-gray-900: #0c111d;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f2f4f7;
+  --color-gray-200: #eaecf0;
+  --color-gray-300: #d0d5dd;
+  --color-gray-400: #98a2b3;
+  --color-gray-500: #667085;
+  --color-gray-600: #475467;
+  --color-gray-700: #344054;
+  --color-gray-800: #182230;
+  --color-gray-900: #0c111d;
 }
 
 @layer base {
-	body {
-		@apply text-base;
-	}
+  body {
+    @apply text-base;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply max-w-330 mx-auto;
+  }
+
+  .container-fluid {
+    @apply max-w-1280 mx-auto;
+  }
 }

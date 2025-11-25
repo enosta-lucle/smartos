@@ -1,0 +1,40 @@
+---
+import Button from "$/components/button.astro";
+import MotionVideo from "$/components/motion-video.astro";
+import type { Button as TButton } from "$/types/strapi.type";
+
+type Props = {
+  title: string;
+  highlight: string;
+  buttons: Array<TButton>;
+  visual: string;
+  description: string;
+  className?: string;
+};
+
+const { title, highlight, buttons, visual, description, className } = Astro.props;
+
+const [titleBeforeHighlight, titleAfterHighlight] = title.split(highlight);
+---
+
+<section
+  class:list={["container", "flex flex-col items-center px-4", "md:flex-row-reverse md:justify-between ", className]}
+>
+  <div class:list={["animate-fade-in-down", "md:animate-fade-in-left"]}>
+    <MotionVideo src={visual} className="w-76 h-50 md:w-150 md:h-97" />
+  </div>
+
+  <div class:list={["animate-fade-in-up", "md:animate-fade-in-right", "flex flex-col"]}>
+    <h1 class:list={["text-4xl font-bold whitespace-pre-line", "md:text-6xl md:leading-snug"]}>
+      {titleBeforeHighlight}
+      <span class="text-primary">{highlight}</span>
+      {titleAfterHighlight}
+    </h1>
+
+    <p class="text-gray-700 mt-4 text-md">{description}</p>
+
+    <div class="flex gap-4 mt-6">
+      {buttons.map((button) => <Button {...button} />)}
+    </div>
+  </div>
+</section>
