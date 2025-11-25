@@ -54,7 +54,7 @@
 
 @layer utilities {
   .container {
-    @apply max-w-330 mx-auto;
+    @apply max-w-330 mx-auto px-4;
   }
 
   .container-fluid {

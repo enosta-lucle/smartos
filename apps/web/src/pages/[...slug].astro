@@ -1,6 +1,9 @@
 ---
 import { first } from "lodash-es";
+
 import SectionHero from "$/components/sections/hero.astro";
+import SectionSolutions from "$/components/sections/solutions.astro";
+
 import MainLayout from "$/layouts/main-layout.astro";
 import type { PageResponse } from "$/types/strapi.type";
 import { api } from "$/utils/client.util";
@@ -37,7 +40,11 @@ const { sections } = first(page?.data ?? []) ?? {};
     visual="/uploads/Hero_Motion_Trang_chu_972678a3cd.webm"
   />
 
+  <SectionSolutions class:list={["mt-12"]} />
+
   <!-- <div>
     {JSON.stringify(sections)}
   </div> -->
+
+  <div class="w-100 h-20 bg-rounded-corner-tr">Hello</div>
 </MainLayout>
