@@ -1,5 +1,4 @@
 ---
-import type { AstroBuiltinAttributes } from "astro";
 import Button from "$/components/button.astro";
 import MotionVideo from "$/components/motion-video.astro";
 import type { Button as TButton } from "$/types/strapi.type";
@@ -13,12 +12,14 @@ type Props = {
   class?: string;
 };
 
-const { title, highlight, buttons, visual, description, class: className } = Astro.props;
+const { title, highlight, buttons, visual, description } = Astro.props;
 
 const [titleBeforeHighlight, titleAfterHighlight] = title.split(highlight);
 ---
 
-<section class:list={["container", "flex flex-col items-center", "md:flex-row-reverse md:justify-between ", className]}>
+<section
+  class:list={["container", "flex flex-col items-center", "md:flex-row-reverse md:justify-between ", Astro.props.class]}
+>
   <div class:list={["animate-fade-in-down", "md:animate-fade-in-left"]}>
     <MotionVideo src={visual} className="w-76 h-50 md:w-150 md:h-97" />
   </div>

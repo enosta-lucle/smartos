@@ -1,0 +1,40 @@
+---
+import FoldCorner from "$/components/fold-corner.astro";
+
+type Props = {
+  class?: string;
+};
+---
+
+<section class:list={["container", Astro.props.class]}>
+  <FoldCorner
+    corners="top-bottom"
+    class:list={[
+      "px-6 py-12",
+      "[&>div:nth-of-type(even)]:bg-primary-700",
+      "[&>div:nth-of-type(even)]:w-full [&>div:nth-of-type(even)]:h-px",
+      "grid gap-10",
+      "md:grid-cols-[1fr_auto_1fr_auto_1fr]",
+      "md:[&>div:nth-of-type(even)]:w-px md:[&>div:nth-of-type(even)]:h-full",
+    ]}
+  >
+    <div class="flex flex-col gap-2 items-center">
+      <span class="text-lg">Tăng tỉ lệ lấp đầy</span>
+      <span class="text-4xl font-semibold">94%</span>
+    </div>
+
+    <div></div>
+
+    <div class="flex flex-col gap-2 items-center">
+      <span class="text-lg">Hệ thống đang quản lý</span>
+      <span class="text-4xl font-semibold">10,000+</span>
+    </div>
+
+    <div></div>
+
+    <div class="flex flex-col gap-2 items-center">
+      <span class="text-lg">Tiết kiệm mỗi nhân sự vận hành</span>
+      <span class="text-4xl font-semibold">2h/ ngày</span>
+    </div>
+  </FoldCorner>
+</section>

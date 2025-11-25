@@ -5,11 +5,9 @@ import FoldCorner from "$/components/fold-corner.astro";
 type Props = {
   class?: string;
 };
-
-const { class: className } = Astro.props;
 ---
 
-<section class:list={["container", "flex flex-col gap-8", "md:flex-row", className]}>
+<section class:list={["container", "flex flex-col gap-8", "md:flex-row", Astro.props.class]}>
   {
     range(3).map((idx) => (
       <div class:list={[idx % 2 ? "animate-fade-in-left" : "animate-fade-in-right", "md:animate-fade-in-up"]}>
@@ -21,7 +19,10 @@ const { class: className } = Astro.props;
           }
         </div>
 
-        <FoldCorner class:list={["aspect-392/218", "mt-3 rounded-lg overflow-hidden"]} />
+        <FoldCorner
+          variant={idx % 2 ? "secondary" : "primary"}
+          class:list={["aspect-392/218", "mt-3 rounded-lg overflow-hidden"]}
+        />
       </div>
     ))
   }
