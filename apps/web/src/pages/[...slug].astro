@@ -6,6 +6,7 @@ import SectionFeatures from "$/components/section-features.astro";
 import SectionHero from "$/components/section-hero.astro";
 import SectionIntegrations from "$/components/section-integrations.astro";
 import SectionMetrics from "$/components/section-metrics.astro";
+import SectionResources from "$/components/section-resources.astro";
 import SectionSolutions from "$/components/section-solutions.astro";
 import MainLayout from "$/layouts/main-layout.astro";
 import type { PageResponse } from "$/types/strapi.type";
@@ -45,6 +46,7 @@ const sectionComponents: Record<string, any> = {
   <SectionFeatures />
   <SectionIntegrations />
   <SectionCustomerSuccess />
+  <SectionResources />
 
   <pre>
     <!-- <code>{JSON.stringify(page, null, 2)}</code> -->
