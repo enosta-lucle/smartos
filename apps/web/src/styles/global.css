@@ -15,10 +15,24 @@
 	--text-xl: 1.25rem;
 
 	--color-primary: #ffbe01;
+	--color-primary-50: #fffdf5;
+	--color-primary-100: #fff9e6;
 	--color-primary-200: #ffe497;
+	--color-primary-300: #ffd98c;
+	--color-primary-400: #ffc92c;
+	--color-primary-500: var(--color-primary);
+	--color-primary-600: #bd8c00;
 	--color-primary-700: #9c7401;
 
 	--color-secondary: #012063;
+	--color-secondary-50: #bce0fa;
+	--color-secondary-100: #a5d3eb;
+	--color-secondary-200: #80b0dc;
+	--color-secondary-300: #0f80dc;
+	--color-secondary-400: #0846c1;
+	--color-secondary-500: var(--color-secondary);
+	--color-secondary-600: #01184c;
+	--color-secondary-700: #010d28;
 
 	--color-gray-50: #f9fafb;
 	--color-gray-100: #f2f4f7;
