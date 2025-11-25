@@ -3,6 +3,7 @@ import { first } from "lodash-es";
 import SectionClients from "$/components/section-clients.astro";
 import SectionFeatures from "$/components/section-features.astro";
 import SectionHero from "$/components/section-hero.astro";
+import SectionIntegrations from "$/components/section-integrations.astro";
 import SectionMetrics from "$/components/section-metrics.astro";
 import SectionSolutions from "$/components/section-solutions.astro";
 import MainLayout from "$/layouts/main-layout.astro";
@@ -41,6 +42,7 @@ const sectionComponents: Record<string, any> = {
   <SectionMetrics />
   <SectionClients />
   <SectionFeatures />
+  <SectionIntegrations />
 
   <pre>
     <!-- <code>{JSON.stringify(page, null, 2)}</code> -->
