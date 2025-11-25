@@ -1,5 +1,6 @@
 ---
 import { range } from "lodash-es";
+import iconExport from "$/assets/export.svg?raw";
 import Button from "$/components/button.astro";
 ---
 
@@ -20,7 +21,7 @@ import Button from "$/components/button.astro";
           </div>
 
           <div class="flex gap-2 mt-6">
-            <Button variant="solid" label="Xem demo" />
+            <Button variant="solid" label="Xem demo" icon={iconExport} />
             <Button variant="text" label="Dùng thử" />
           </div>
         </div>

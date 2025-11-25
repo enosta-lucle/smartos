@@ -3,13 +3,13 @@ import * as cheerio from "cheerio";
 
 type Props = {
   src: string; // INFO: SVG string
-  className?: string;
+  class?: string;
 };
 
-const { src, className } = Astro.props;
+const { src } = Astro.props;
 
 const $ = cheerio.load(src ?? "");
-$("svg").addClass(className);
+$("svg").addClass(Astro.props.class);
 ---
 
 <Fragment set:html={$.html("svg")} />
