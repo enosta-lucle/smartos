@@ -6,10 +6,10 @@ type Props = {
   icon?: string;
   href?: string;
   variant: "solid" | "text" | "white";
-  className?: string;
+  class?: string;
 };
 
-const { label, icon, variant, className } = Astro.props;
+const { label, icon, variant } = Astro.props;
 
 const VARIANTS = {
   solid: "bg-primary",
@@ -22,7 +22,7 @@ const VARIANTS = {
   class:list={[
     "flex items-center justify-center gap-1.5 h-10 px-3 text-sm font-semibold cursor-pointer rounded-lg transition-colors",
     VARIANTS[variant],
-    className,
+    Astro.props.class,
   ]}
 >
   {

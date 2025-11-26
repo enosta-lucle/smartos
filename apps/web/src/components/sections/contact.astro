@@ -1,0 +1,38 @@
+---
+import SvgCta from "$/assets/cta.svg";
+import IconEmail from "$/assets/email.svg";
+import IconPhone from "$/assets/phone.svg";
+import Button from "$/components/button.astro";
+import FoldCorner from "$/components/fold-corner.astro";
+---
+
+<section class:list={["container", Astro.props.class]}>
+  <FoldCorner class:list={["relative", "px-5 py-8", "flex flex-col gap-12", "md:flex-row md:items-center md:px-25"]}>
+    <div class="md:grow">
+      <div class="font-bold text-2xl">30 phút tư vấn hôm nay</div>
+      <div class="text-lg mt-4">Tiết kiệm 30% thời gian mỗi ngày</div>
+      <div class:list={["flex gap-2 justify-center mt-6", "md:justify-start"]}>
+        <Button label="Đặt hẹn" variant="white" class:list={["min-w-40"]} />
+        <Button label="Dùng thử miễn phí" variant="text" />
+      </div>
+    </div>
+
+    <div class:list={["flex flex-col gap-10"]}>
+      <SvgCta class:list={["aspect-369/226"]} />
+
+      <div class:list={["flex flex-col gap-3", "md:flex-row md:items-center"]}>
+        <div class="flex gap-2">
+          <IconPhone class="size-5" />
+          <div class="font-medium">+84 905 969 648</div>
+        </div>
+
+        <div class:list={["hidden", "md:block md:h-3 md:w-px md:bg-gray-900"]}></div>
+
+        <div class="flex gap-2">
+          <IconEmail class="size-5" />
+          <div class="font-medium">support@smartos.space</div>
+        </div>
+      </div>
+    </div>
+  </FoldCorner>
+</section>

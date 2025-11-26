@@ -2,6 +2,7 @@
 import { first } from "lodash-es";
 
 import SectionClients from "$/components/sections/clients.astro";
+import SectionContact from "$/components/sections/contact.astro";
 import SectionCustomerSuccess from "$/components/sections/customer-success.astro";
 import SectionFeatures from "$/components/sections/features.astro";
 import SectionHero from "$/components/sections/hero.astro";
@@ -53,6 +54,7 @@ const { sections } = first(page?.data ?? []) ?? {};
   <SectionIntegrations class:list={["mt-16", "md:mt-25"]} />
   <SectionCustomerSuccess class:list={["mt-10", "md:mt-25"]} />
   <SectionResources class:list={["mt-12", "md:mt-25"]} />
+  <SectionContact class:list={["mt-12", "md:mt-25"]} />
 
   <div class="w-2 h-[500px]"></div>
 </MainLayout>

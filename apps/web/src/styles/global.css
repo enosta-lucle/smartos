@@ -56,4 +56,36 @@
   .container {
     @apply max-w-330 mx-auto px-4;
   }
+
+  .bg-corners-bottom-primary {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      var(--color-primary) calc(100% - 35px),
+      transparent calc(100% - 35px)
+    );
+  }
+
+  .bg-corners-bottom-secondary {
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary) 0%,
+      var(--color-secondary) calc(100% - 35px),
+      transparent calc(100% - 35px)
+    );
+  }
+
+  .bg-corners-all-primary {
+    background: linear-gradient(
+      135deg,
+      transparent 35px,
+      var(--color-primary) 35px,
+      var(--color-primary) calc(100% - 35px),
+      transparent calc(100% - 35px)
+    );
+  }
+
+  .bg-conic-primary {
+    background: conic-gradient(from 26.12deg at 73.92% 45.73%, #ffbe00 0deg, #ffd500 360deg);
+  }
 }
