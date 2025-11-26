@@ -9,7 +9,10 @@ import Counter from "$/components/counter.astro";
   <div class:list={["mt-8 flex flex-col items-center gap-6", "md:flex-row"]}>
     {
       range(3).map((idx) => (
-        <div class:list={["w-full h-72.5 p-4 border border-gray-200 rounded-2xl inline-flex! flex-col items-center"]}>
+        <div
+          data-aos="fade"
+          class:list={["w-full h-72.5 p-4 border border-gray-200 rounded-2xl inline-flex! flex-col items-center"]}
+        >
           <div class="bg-gray-100 h-37.5 w-full rounded-xl shrink-0 flex flex-col items-center justify-center">
             <div class="text-4xl font-bold">
               <Counter value={94} label="%" />

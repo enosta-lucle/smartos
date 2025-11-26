@@ -1,0 +1,9 @@
+/* [data-aos="fade"] {
+  transition-property: opacity;
+
+  opacity: 0;
+
+  &.aos-animate {
+    opacity: 1;
+  }
+} */
