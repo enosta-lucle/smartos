@@ -7,10 +7,18 @@ import IconFlash from "$/assets/flash.svg";
   <h2 class="font-bold text-2xl text-center text-white">Integrations</h2>
 
   <div class="flex justify-center">
-    <div class="carousel carousel-center max-w-full mt-12">
+    <div class:list={["trig-fade-left enable-trig", "carousel carousel-center max-w-full mt-12"]}>
       {
         range(5).map((idx) => (
-          <div class:list={["carousel-item", "bg-cover", "w-63 h-78 mx-6 rounded-md p-4 pb-8 flex flex-col"]}>
+          <div
+            style={`--trig-delay: ${idx * 0.2}s`}
+            class:list={[
+              "trig-target",
+              "carousel-item",
+              "bg-cover",
+              "w-63 h-78 mx-6 rounded-md p-4 pb-8 flex flex-col",
+            ]}
+          >
             <IconFlash class="size-6 text-white" />
             <h3 class="font-bold text-white text-lg mt-2">Hợp đồng điện tử</h3>
 
