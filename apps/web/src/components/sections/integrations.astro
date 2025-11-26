@@ -10,7 +10,11 @@ import IconFlash from "$/assets/flash.svg";
     <div class:list={["carousel carousel-center max-w-full mt-12"]}>
       {
         range(5).map((idx) => (
-          <div class:list={["carousel-item", "bg-cover", "w-63 h-78 mx-6 rounded-md p-4 pb-8 flex flex-col"]}>
+          <div
+            data-aos="fade-left"
+            data-aos-delay={idx * 100}
+            class:list={["carousel-item", "bg-cover", "w-63 h-78 mx-6 rounded-md p-4 pb-8 flex flex-col"]}
+          >
             <IconFlash class="size-6 text-white" />
             <h3 class="font-bold text-white text-lg mt-2">Hợp đồng điện tử</h3>
 
