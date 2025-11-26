@@ -1,0 +1,31 @@
+---
+type Props = {
+  value: number;
+  label: string;
+};
+
+const { value, label } = Astro.props;
+---
+
+<div>
+  <span>{label}</span>
+</div>
+
+<style define:vars={{ count: value }}>
+  @property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+
+  div {
+    transition: --num 2s;
+    counter-set: num var(--num);
+
+    --num: var(--count);
+
+    &::before {
+      content: counter(num);
+    }
+  }
+</style>

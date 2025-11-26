@@ -1,5 +1,6 @@
 ---
 import { range } from "lodash-es";
+import Counter from "$/components/counter.astro";
 ---
 
 <section class:list={["container", Astro.props.class]}>
@@ -8,15 +9,10 @@ import { range } from "lodash-es";
   <div class:list={["mt-8 flex flex-col items-center gap-6", "md:flex-row"]}>
     {
       range(3).map((idx) => (
-        <div
-          class:list={[
-            "trig-fade enable-trig trig-target",
-            "w-full h-72.5 p-4 border border-gray-200 rounded-2xl inline-flex! flex-col items-center",
-          ]}
-        >
+        <div class:list={["w-full h-72.5 p-4 border border-gray-200 rounded-2xl inline-flex! flex-col items-center"]}>
           <div class="bg-gray-100 h-37.5 w-full rounded-xl shrink-0 flex flex-col items-center justify-center">
             <div class="text-4xl font-bold">
-              <span>94</span>%
+              <Counter value={94} label="%" />
             </div>
             <div class="text-gray-700 mt-2">Tăng trưởng tỉ lệ lấp phòng</div>
           </div>
@@ -28,3 +24,22 @@ import { range } from "lodash-es";
     }
   </div>
 </section>
+
+<style>
+  @property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+
+  .counter {
+    transition: --num 5s;
+    counter-set: num var(--num);
+
+    --num: 100;
+
+    &::after {
+      content: counter(num);
+    }
+  }
+</style>

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @import "./carousel.css";
-@import "./trig-animations.css";
 
 @theme {
   --font-sans: "Plus Jakarta Sans", sans-serif;
