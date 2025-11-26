@@ -5,6 +5,7 @@ import Button from "$/components/button.astro";
 
 <section class:list={["container", "flex-col items-center gap-6", Astro.props.class]}>
   <div
+    data-aos="fade"
     class:list={[
       "flex flex-col items-center gap-3 text-center p-6 rounded-2xl border border-gray-200",
       "bg-[radial-gradient(circle_at_50%_53%,rgba(255,217,108,0.5)_0%,rgba(255,190,1,0.03)_100%)]",
@@ -20,7 +21,7 @@ import Button from "$/components/button.astro";
       label="Xem thêm"
       icon={exportIcon}
       variant="solid"
-      className="px-4 rounded-[10px] text-gray-900 hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
+      class="px-4 rounded-[10px] text-gray-900 hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
     />
   </div>
 </section>
