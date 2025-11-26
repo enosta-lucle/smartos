@@ -8,7 +8,14 @@ import Button from "$/components/button.astro";
   <div class:list={["grid gap-4", "md:grid md:grid-cols-6"]}>
     {
       range(5).map((idx) => (
-        <div class:list={["bg-gray-100 rounded-2xl p-6", idx < 2 ? "md:col-span-3" : "md:col-span-2"]}>
+        <div
+          class:list={[
+            "border-linear",
+            "relative",
+            "bg-gray-100 rounded-2xl p-6",
+            idx < 2 ? "md:col-span-3" : "md:col-span-2",
+          ]}
+        >
           <div class="flex items-center justify-center aspect-video bg-linear-to-t from-primary/30 to-gray-100/20 rounded-2xl">
             Image
           </div>

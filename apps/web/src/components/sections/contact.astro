@@ -7,7 +7,15 @@ import FoldCorner from "$/components/fold-corner.astro";
 ---
 
 <section class:list={["container", Astro.props.class]}>
-  <FoldCorner class:list={["relative", "px-5 py-8", "flex flex-col gap-12", "md:flex-row md:items-center md:px-25"]}>
+  <FoldCorner
+    class:list={[
+      "relative",
+      "bg-conic-primary",
+      "px-5 py-8",
+      "flex flex-col gap-12",
+      "md:flex-row md:items-center md:px-25",
+    ]}
+  >
     <div class="md:grow">
       <div class="font-bold text-2xl">30 phút tư vấn hôm nay</div>
       <div class="text-lg mt-4">Tiết kiệm 30% thời gian mỗi ngày</div>

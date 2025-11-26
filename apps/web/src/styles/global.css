@@ -88,4 +88,20 @@
   .bg-conic-primary {
     background: conic-gradient(from 26.12deg at 73.92% 45.73%, #ffbe00 0deg, #ffd500 360deg);
   }
+
+  .border-linear {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-bottom: 2px solid transparent;
+      border-radius: 16px;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(90deg, #0f53dc 0.89%, #ffd96c 48.27%, #ffbe01 98.46%);
+      mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+    }
+  }
 }
