@@ -1,0 +1,40 @@
+---
+import { range } from "lodash-es";
+import Trophy from "$/assets/trophy.svg";
+---
+
+<section class:list={["container", "flex flex-col items-center", Astro.props.class]}>
+  <span class:list={["text-2xl font-bold"]}>Award & Media</span>
+  <span class="text-gray-700 mt-4">Giải pháp Việt mang chuẩn mực quản trị quốc tế</span>
+
+  <div
+    class:list={[
+      "grid grid-cols-2 size-max gap-4",
+      "mt-12",
+      "md:max-w-full md:flex md:*:translate-none md:gap-16 md:flex-wrap md:justify-center",
+    ]}
+  >
+    {
+      range(5).map((idx) => (
+        <div
+          class:list={[
+            "relative",
+            "aspect-160/142 w-40",
+            "flex justify-center items-center",
+            {
+              "translate-y-[calc(50%+0.5rem)] -translate-x-1/8": idx % 2 == 1,
+              "translate-x-1/8": idx % 2 == 0,
+            },
+          ]}
+        >
+          <Trophy class="absolute inset-0 -z-10" />
+
+          <div class="w-1/2 h-4/5 translate-y-0.5 flex flex-col justify-between items-center">
+            <div class="text-center font-bold">Top 10 HK TECH 300 ĐNA</div>
+            <div class="text-white font-bold">2022</div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
