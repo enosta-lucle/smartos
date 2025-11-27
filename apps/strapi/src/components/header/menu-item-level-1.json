@@ -1,45 +1,45 @@
 {
-  "collectionName": "components_header_menu_item_level_1s",
-  "info": {
-    "displayName": "Menu Item Level 1"
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "hasChild": {
-      "type": "boolean",
-      "default": false
-    },
-    "href": {
-      "type": "string",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "hasChild"
-            },
-            false
-          ]
-        }
-      }
-    },
-    "children": {
-      "type": "component",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "hasChild"
-            },
-            true
-          ]
-        }
-      },
-      "component": "header.menu-item-level-2",
-      "repeatable": true
-    }
-  },
-  "config": {}
+	"collectionName": "components_header_menu_item_level_1s",
+	"info": {
+		"displayName": "Menu Item Level 1"
+	},
+	"options": {},
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"hasChild": {
+			"type": "boolean",
+			"default": false
+		},
+		"href": {
+			"type": "string",
+			"conditions": {
+				"visible": {
+					"==": [
+						{
+							"var": "hasChild"
+						},
+						false
+					]
+				}
+			}
+		},
+		"children": {
+			"type": "component",
+			"conditions": {
+				"visible": {
+					"==": [
+						{
+							"var": "hasChild"
+						},
+						true
+					]
+				}
+			},
+			"component": "header.menu-item-level-2",
+			"repeatable": true
+		}
+	},
+	"config": {}
 }

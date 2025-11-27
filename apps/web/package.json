@@ -9,6 +9,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@strapi/provider-upload-aws-s3": "^5.31.2",
 		"@tailwindcss/vite": "^4.1.17",
 		"aos": "^2.3.4",
 		"astro": "^5.16.0",
