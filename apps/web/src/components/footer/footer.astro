@@ -9,7 +9,15 @@ import IconYoutube from "$/assets/youtube.svg";
 import LogoText from "$/components/logo-text.astro";
 ---
 
-<footer class:list={["py-10", "border-t border-gray-200 mt-25"]}>
+<footer class:list={["relative", "py-10", "border-t border-gray-200 mt-25"]}>
+  <div
+    class:list={[
+      "absolute bottom-full h-[1686px] w-full -z-10 pointer-events-none",
+      "bg-[linear-gradient(180deg,#FFFFFF_40.38%,rgba(255,228,151,0.3)_100%)]",
+    ]}
+  >
+  </div>
+
   <div class="container">
     <div class:list={["flex flex-col gap-8 order-0", "md:flex-row"]}>
       <div>
