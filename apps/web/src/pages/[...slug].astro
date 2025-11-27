@@ -20,35 +20,54 @@ export function getStaticPaths() {
   return [{ params: { slug: "/" } }, { params: { slug: "/living" } }];
 }
 
-const { slug = "" } = Astro.params;
+const slug = Astro.params.slug || "/";
+console.log({ slug });
 
 const page = await api<PageResponse>("/pages", {
-  filters: { slug: `/${slug}` },
+  filters: { slug },
 });
 
 const { sections } = first(page?.data ?? []) ?? {};
+
+const SECTIONS: Record<string, any> = {
+  hero: SectionHero,
+  solutions: SectionSolutions,
+  metrics: SectionMetrics,
+  clients: SectionClients,
+  features: SectionFeatures,
+  integrations: SectionIntegrations,
+  customerSuccess: SectionCustomerSuccess,
+  resources: SectionResources,
+  faq: SectionFaq,
+  contact: SectionContact,
+  awards: SectionAwards,
+};
+
+const STYLES: Record<string, Record<string, string[]>> = {
+  "/": {
+    solutions: ["mt-12"],
+  },
+};
 ---
 
-<MainLayout>
-  <SectionHero
-    title="Không gian linh hoạt\nTăng trưởng doanh thu"
-    highlight="linh hoạt"
-    description="Tự động hoá đặt chỗ, thanh toán, hoá đơn và quản trị trải nghiệm thành viên cùng Smartos"
-    buttons={[
-      {
-        label: "Hẹn lịch tư vấn",
-        variant: "solid",
-      },
-      {
-        label: "Xem giới thiệu",
-        variant: "text",
-        icon: '<svg width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">\n <path d="M9.97493 1.6665C5.37493 1.6665 1.6416 5.39984 1.6416 9.99984C1.6416 14.5998 5.37493 18.3332 9.97493 18.3332C14.5749 18.3332 18.3083 14.5998 18.3083 9.99984C18.3083 5.39984 14.5833 1.6665 9.97493 1.6665ZM12.4749 11.8582L10.0583 13.2498C9.75827 13.4248 9.42493 13.5082 9.09993 13.5082C8.7666 13.5082 8.4416 13.4248 8.1416 13.2498C7.5416 12.8998 7.18327 12.2832 7.18327 11.5832V8.7915C7.18327 8.09984 7.5416 7.47484 8.1416 7.12484C8.7416 6.77484 9.45827 6.77484 10.0666 7.12484L12.4833 8.5165C13.0833 8.8665 13.4416 9.48317 13.4416 10.1832C13.4416 10.8832 13.0833 11.5082 12.4749 11.8582Z" />\n</svg>\n',
-      },
-    ]}
-    visual="/uploads/Hero_Motion_Trang_chu_972678a3cd.webm"
-  />
+<script define:vars={{ sections }}>
+  console.log(sections);
+</script>
 
-  <SectionSolutions class:list={["mt-12"]} />
+<MainLayout>
+  {
+    sections?.map((section) => {
+      const key = section.__component.replace("section.", "");
+
+      const Section = SECTIONS[key];
+      const className = STYLES[slug]?.[key];
+
+      if (!Section) return null;
+
+      return <Section {...section} class:list={className} />;
+    })
+  }
+
   <SectionMetrics class:list={["mt-10 md:mt-20"]} />
   <SectionClients class:list={["mt-16", "md:mt-25"]} />
   <SectionFeatures class:list={["mt-16", "md:mt-25"]} />
