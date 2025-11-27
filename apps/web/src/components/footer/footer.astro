@@ -1,0 +1,96 @@
+---
+import IconEmail from "$/assets/email.svg";
+import IconFacebook from "$/assets/facebook.svg";
+import IconLinkedin from "$/assets/linkedin.svg";
+import IconLocation from "$/assets/location.svg";
+import IconPhone from "$/assets/phone.svg";
+import IconYoutube from "$/assets/youtube.svg";
+
+import LogoText from "$/components/logo-text.astro";
+---
+
+<footer class:list={["px-4 py-10"]}>
+  <div class:list={["flex flex-col gap-8 order-0", "md:flex-row"]}>
+    <div>
+      <LogoText height={30} />
+      <div class:list={["mt-6 text-gray-600"]}>
+        Smartos là nền tảng vận hành toàn diện cho bất động sản cho thuê, kết nối vận hành - dữ liệu - khách thuê - tư
+        vấn trong một hệ sinh thái thống nhất, giúp doanh nghiệp tối ưu quy trình, minh bạch tài chính và mở rộng bền
+        vững.
+      </div>
+      <div class:list={["mt-8 flex gap-5.5"]}>
+        <IconFacebook class:list={["size-6 text-neutral-100"]} />
+        <IconLinkedin class:list={["size-6 text-neutral-100"]} />
+        <IconYoutube class:list={["size-6 text-neutral-100"]} />
+      </div>
+    </div>
+
+    <div class:list={["order-2", "flex flex-col gap-4 text-md", "md:min-w-38.5"]}>
+      <div class="font-bold text-lg">Công ty</div>
+
+      <div class="text-gray-700">Về Smartos</div>
+      <div class="text-gray-700">Trung tâm hỗ trợ</div>
+      <div class="text-gray-700">Liên hệ ngay</div>
+      <div class="text-gray-700">Điều khoản sử dụng</div>
+      <div class="text-gray-700">Chính sách bảo mật</div>
+    </div>
+
+    <div class:list={["order-3", "flex flex-col gap-4 text-md", "md:min-w-38.5"]}>
+      <div class="font-bold text-lg">Giải pháp</div>
+
+      <div class="text-gray-700">Quản lý co-working, văn phòng</div>
+      <div class="text-gray-700">Quản lý căn hộ, phòng trọ</div>
+      <div class="text-gray-700">Tìm kiếm nơi ở, nơi làm việc</div>
+    </div>
+
+    <div class:list={["order-4", "flex flex-col gap-4 text-md", "md:min-w-38.5"]}>
+      <div class="font-bold text-lg">Sản phẩm</div>
+
+      <div class="text-gray-700">PMS</div>
+      <div class="text-gray-700">Bespoke</div>
+      <div class="text-gray-700">Booking</div>
+      <div class="text-gray-400">Intelligence</div>
+      <div class="text-gray-400">Consulting</div>
+    </div>
+
+    <div class:list={["order-1", "md:order-5", "flex flex-col gap-4 text-md", "md:min-w-56.5"]}>
+      <div class="font-bold text-lg">Contacts us</div>
+
+      <div class:list={["flex gap-2"]}>
+        <IconLocation class:list={["size-5 shrink-0"]} />
+        <div class="flex flex-col gap-2">
+          <div>
+            <span class="font-semibold">Hồ Chí Minh:</span>
+            <span class="text-gray-700">46 Trương Quyền, Phường 6, Quận 3</span>
+          </div>
+
+          <div>
+            <span class="font-semibold">Đà Nẵng:</span>
+            <span class="text-gray-700">18 An Nhơn 3, An Hải Bắc, Sơn Trà </span>
+          </div>
+        </div>
+      </div>
+
+      <div class:list={["flex gap-2"]}>
+        <IconPhone class:list={["size-5 shrink-0"]} />
+        <span class="text-gray-700">(84) 905 969 648</span>
+      </div>
+
+      <div class:list={["flex gap-2"]}>
+        <IconEmail class:list={["size-5 shrink-0"]} />
+        <span class="text-gray-700">support@smartos.space</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="mt-12 mb-4 border-gray-200 md:mb-6" />
+
+  <div class:list={["text-gray-600 flex flex-col gap-6", "md:flex-row-reverse md:justify-between"]}>
+    <div class="max-w-114">
+      Công ty Cổ phần Smartos - Giấy chứng nhận đăng ký doanh nghiệp công ty cổ phần số 0402150125 đăng ký lần đầu ngày
+      25/05/2022 tại Phòng đăng kí kinh doanh - Sở kế hoạch và đầu tư Thành phố Đà Nẵng.
+    </div>
+
+    <div>Smartos powered by Enosta - Smartos © 2025. All Rights Reserved</div>
+  </div>
+</footer>

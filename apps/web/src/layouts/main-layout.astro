@@ -2,6 +2,7 @@
 import "$/styles/global.css";
 import "aos/dist/aos.css";
 
+import Footer from "$/components/footer/footer.astro";
 import Header from "$/components/header/header.astro";
 
 type Props = {
@@ -32,6 +33,7 @@ const { title = "Smartos" } = Astro.props;
   <body>
     <Header />
     <slot />
+    <Footer />
 
     <script>
       import AOS from "aos";
