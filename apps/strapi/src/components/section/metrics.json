@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_metrics",
+  "info": {
+    "displayName": "Metrics"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "shared.metric-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

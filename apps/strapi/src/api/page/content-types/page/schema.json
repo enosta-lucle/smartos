@@ -25,7 +25,9 @@
       "type": "dynamiczone",
       "components": [
         "section.hero",
-        "section.solutions"
+        "section.solutions",
+        "section.metrics",
+        "section.clients"
       ]
     }
   }

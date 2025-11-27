@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_metric_items",
+  "info": {
+    "displayName": "Metric Item"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "integer"
+    },
+    "unit": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

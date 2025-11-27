@@ -1,9 +1,18 @@
 ---
+import Counter from "$/components/counter.astro";
 import FoldCorner from "$/components/fold-corner.astro";
 
 type Props = {
   class?: string;
+  items: Array<{
+    id: number;
+    label: string;
+    value: number;
+    unit: string;
+  }>;
 };
+
+const { items } = Astro.props;
 ---
 
 <section class:list={["container", Astro.props.class]}>
@@ -18,23 +27,17 @@ type Props = {
       "md:[&>div:nth-of-type(even)]:w-px md:[&>div:nth-of-type(even)]:h-full",
     ]}
   >
-    <div class="flex flex-col gap-2 items-center">
-      <span class="text-lg">Tăng tỉ lệ lấp đầy</span>
-      <span class="text-4xl font-semibold">94%</span>
-    </div>
+    {
+      items.map((item, idx) => (
+        <>
+          {idx !== 0 && <div />}
 
-    <div></div>
-
-    <div class="flex flex-col gap-2 items-center">
-      <span class="text-lg">Hệ thống đang quản lý</span>
-      <span class="text-4xl font-semibold">10,000+</span>
-    </div>
-
-    <div></div>
-
-    <div class="flex flex-col gap-2 items-center">
-      <span class="text-lg">Tiết kiệm mỗi nhân sự vận hành</span>
-      <span class="text-4xl font-semibold">2h/ ngày</span>
-    </div>
+          <div class="flex flex-col gap-2 items-center">
+            <span class="text-lg">{item.label}</span>
+            <Counter class="text-4xl font-semibold" value={item.value} label={item.unit} />
+          </div>
+        </>
+      ))
+    }
   </FoldCorner>
 </section>

@@ -45,6 +45,11 @@ const SECTIONS: Record<string, any> = {
 const STYLES: Record<string, Record<string, string[]>> = {
   "/": {
     solutions: ["mt-12"],
+    metrics: ["mt-10 md:mt-20"],
+    clients: ["mt-16", "md:mt-25"],
+  },
+  "/living": {
+    solutions: ["mt-10"],
   },
 };
 ---
@@ -67,8 +72,8 @@ const STYLES: Record<string, Record<string, string[]>> = {
     })
   }
 
-  <SectionMetrics class:list={["mt-10 md:mt-20"]} />
-  <SectionClients class:list={["mt-16", "md:mt-25"]} />
+  <!-- <SectionMetrics class:list={["mt-10 md:mt-20"]} /> -->
+  <!-- <SectionClients class:list={["mt-16", "md:mt-25"]} /> -->
   <SectionFeatures class:list={["mt-16", "md:mt-25"]} />
   <SectionIntegrations class:list={["mt-16", "md:mt-25"]} />
   <SectionCustomerSuccess class:list={["mt-10", "md:mt-25"]} />

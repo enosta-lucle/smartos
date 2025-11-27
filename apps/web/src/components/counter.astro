@@ -2,12 +2,13 @@
 type Props = {
   value: number;
   label: string;
+  class?: string;
 };
 
 const { value, label } = Astro.props;
 ---
 
-<div data-aos="count" class="flex">
+<div data-aos="count" class:list={["flex", Astro.props.class]}>
   <span>{label}</span>
 </div>
 
@@ -19,7 +20,7 @@ const { value, label } = Astro.props;
   }
 
   div {
-    transition: --num 50s;
+    transition: --num 4000s;
     counter-set: num var(--num);
 
     &.aos-animate {

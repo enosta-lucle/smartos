@@ -46,6 +46,16 @@ export interface HeaderMenuItemLevel3 extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionClients extends Struct.ComponentSchema {
+  collectionName: 'components_section_clients';
+  info: {
+    displayName: 'Clients';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.brand', true>;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -58,6 +68,16 @@ export interface SectionHero extends Struct.ComponentSchema {
     tag: Schema.Attribute.String;
     title: Schema.Attribute.Text;
     visual: Schema.Attribute.Media<'images' | 'videos'>;
+  };
+}
+
+export interface SectionMetrics extends Struct.ComponentSchema {
+  collectionName: 'components_section_metrics';
+  info: {
+    displayName: 'Metrics';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.metric-item', true>;
   };
 }
 
@@ -159,6 +179,18 @@ export interface SharedDepartment extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMetricItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_metric_items';
+  info: {
+    displayName: 'Metric Item';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    unit: Schema.Attribute.String;
+    value: Schema.Attribute.Integer;
+  };
+}
+
 export interface SharedOpenGraph extends Struct.ComponentSchema {
   collectionName: 'components_shared_open_graphs';
   info: {
@@ -251,7 +283,9 @@ declare module '@strapi/strapi' {
       'header.menu-item-level-1': HeaderMenuItemLevel1;
       'header.menu-item-level-2': HeaderMenuItemLevel2;
       'header.menu-item-level-3': HeaderMenuItemLevel3;
+      'section.clients': SectionClients;
       'section.hero': SectionHero;
+      'section.metrics': SectionMetrics;
       'section.solutions': SectionSolutions;
       'shared.address': SharedAddress;
       'shared.award': SharedAward;
@@ -260,6 +294,7 @@ declare module '@strapi/strapi' {
       'shared.contact-information': SharedContactInformation;
       'shared.counter': SharedCounter;
       'shared.department': SharedDepartment;
+      'shared.metric-item': SharedMetricItem;
       'shared.open-graph': SharedOpenGraph;
       'shared.process': SharedProcess;
       'shared.question': SharedQuestion;

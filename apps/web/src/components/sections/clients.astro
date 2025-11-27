@@ -1,9 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import { range } from "lodash-es";
+import type { Media } from "$/types/strapi.type";
 
 type Props = {
   class?: string;
+  items: Array<{ name: string; href: string; logo: Media }>;
 };
+
+const { items } = Astro.props;
 ---
 
 <section class:list={["container", Astro.props.class]}>
@@ -21,9 +26,9 @@ type Props = {
       ]}
     >
       {
-        range(4).map((idx) => (
-          <div class="carousel-item w-37.5 h-16.5 bg-gray-100 rounded-2xl flex items-center justify-center">
-            Brand {idx + 1}
+        items?.map(({ logo, name }) => (
+          <div class="carousel-item w-37.5 h-16.5 rounded-2xl flex items-center justify-center">
+            <Image src={logo.url} alt={name} width={150} height={100} class="size-full object-contain" />
           </div>
         ))
       }
