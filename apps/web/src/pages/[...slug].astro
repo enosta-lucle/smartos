@@ -21,7 +21,6 @@ export function getStaticPaths() {
 }
 
 const slug = Astro.params.slug || "/";
-console.log({ slug });
 
 const page = await api<PageResponse>("/pages", {
   filters: { slug },

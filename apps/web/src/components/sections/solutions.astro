@@ -1,28 +1,41 @@
 ---
-import { range } from "lodash-es";
 import FoldCorner from "$/components/fold-corner.astro";
+import type { Button, Media } from "$/types/strapi.type";
 
 type Props = {
   class?: string;
+  solutions?: Array<{
+    id: number;
+    title: string;
+    description: string;
+    image: Media;
+    button: Button;
+  }>;
 };
+
+const { solutions } = Astro.props;
 ---
 
-<section class:list={["container", "flex flex-col gap-8", "md:flex-row", Astro.props.class]}>
+<section class:list={["container", "flex flex-col gap-8", "md:grid md:grid-cols-3", Astro.props.class]}>
   {
-    range(3).map((idx) => (
-      <div class:list={[idx % 2 ? "animate-fade-in-left" : "animate-fade-in-right", "md:animate-fade-in-up"]}>
-        <span class:list={["text-lg font-bold"]}>Quản lý co-working, văn phòng</span>
+    solutions?.map(({ title, description, image }, idx) => (
+      <div
+        class:list={[
+          idx % 2 ? "animate-fade-in-left" : "animate-fade-in-right",
+          "md:animate-fade-in-up",
+          "md:flex md:flex-col",
+        ]}
+      >
+        <span class:list={["text-lg font-bold"]}>{title}</span>
 
-        <div class:list={["text-gray-700 mt-1"]}>
-          {
-            "Hợp nhất dashboard làm việc cho team vận hành, tài chính, lễ tân \nHỗ trợ đa dạng hóa nguồn thu cho nhiều loại hình: Coworking, văn phòng, giảng dạy, sự kiện"
-          }
-        </div>
+        <div class:list={["text-gray-700 mt-1", "whitespace-pre-line", "md:grow"]}>{description}</div>
 
         <FoldCorner
           variant={idx % 2 ? "secondary" : "primary"}
-          class:list={["aspect-392/218", "mt-3 rounded-lg overflow-hidden"]}
-        />
+          class:list={["aspect-392/218", "mt-3 rounded-lg overflow-hidden p-0!"]}
+        >
+          <img src={image?.url} class="size-full" />
+        </FoldCorner>
       </div>
     ))
   }
