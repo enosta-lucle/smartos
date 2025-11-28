@@ -1,7 +1,16 @@
 ---
-import { range } from "lodash-es";
 import IconMinus from "$/assets/minus.svg";
 import IconPlus from "$/assets/plus.svg";
+
+type Props = {
+  items?: Array<{
+    question: string;
+    answer: string;
+  }>;
+  class?: string;
+};
+
+const { items } = Astro.props;
 ---
 
 <section data-aos="fade-up" class:list={["max-w-5xl mx-auto px-4", "md:flex md:justify-between", Astro.props.class]}>
@@ -9,7 +18,7 @@ import IconPlus from "$/assets/plus.svg";
 
   <div class:list={["mt-8 flex flex-col gap-6", "md:max-w-200 md:m-0"]}>
     {
-      range(4).map((idx) => (
+      items?.map(({ question, answer }, idx) => (
         <div class="flex gap-8">
           <svg width="22" height="22" viewBox="0 0 22 22" class="shrink-0 fill-primary translate-y-1">
             <path d="M21.2407 19.2356C21.2407 21.0083 19.1053 21.9047 17.84 20.6631L9.01105 12L0.57616 3.40052C-0.66503 2.13511 0.231474 2.47955e-05 2.00399 3.8147e-05L19.2407 0.000181198C20.3453 0.000190735 21.2407 0.895618 21.2407 2.00018V19.2356Z" />
@@ -27,19 +36,13 @@ import IconPlus from "$/assets/plus.svg";
             />
 
             <label for={`faq-${idx}`} class="text-md font-bold flex items-start gap-4">
-              <span class="grow">Smartos khác gì so với những phần mềm quản lý nhà trọ, căn hộ khác?</span>
+              <span class="grow">{question}</span>
 
               <IconMinus class="minus size-5 hidden" />
               <IconPlus class="plus size-5" />
             </label>
 
-            <div class:list={["grid grid-rows-[minmax(0,0fr)] overflow-hidden transition-all"]}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.
-            </div>
+            <div class:list={["grid grid-rows-[minmax(0,0fr)] overflow-hidden transition-all"]}>{answer}</div>
           </div>
         </div>
       ))

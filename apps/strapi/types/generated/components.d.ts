@@ -56,6 +56,16 @@ export interface SectionClients extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionFaq extends Struct.ComponentSchema {
+  collectionName: 'components_section_faqs';
+  info: {
+    displayName: 'FAQ';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.question', true>;
+  };
+}
+
 export interface SectionFeatures extends Struct.ComponentSchema {
   collectionName: 'components_section_features';
   info: {
@@ -307,6 +317,7 @@ declare module '@strapi/strapi' {
       'header.menu-item-level-2': HeaderMenuItemLevel2;
       'header.menu-item-level-3': HeaderMenuItemLevel3;
       'section.clients': SectionClients;
+      'section.faq': SectionFaq;
       'section.features': SectionFeatures;
       'section.hero': SectionHero;
       'section.metrics': SectionMetrics;

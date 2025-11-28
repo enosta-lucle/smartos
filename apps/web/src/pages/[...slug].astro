@@ -4,7 +4,7 @@ import SectionAwards from "$/components/sections/awards.astro";
 import SectionClients from "$/components/sections/clients.astro";
 import SectionContact from "$/components/sections/contact.astro";
 import SectionCustomerSuccess from "$/components/sections/customer-success.astro";
-import SectionFaq from "$/components/sections/faq.astro";
+import SectionFAQ from "$/components/sections/faq.astro";
 import SectionFeatures from "$/components/sections/features.astro";
 import SectionHero from "$/components/sections/hero.astro";
 import SectionIntegrations from "$/components/sections/integrations.astro";
@@ -37,7 +37,7 @@ const SECTIONS: Record<string, any> = {
   integrations: SectionIntegrations,
   customerSuccess: SectionCustomerSuccess,
   resources: SectionResources,
-  faq: SectionFaq,
+  faq: SectionFAQ,
   contact: SectionContact,
   awards: SectionAwards,
 };
@@ -48,6 +48,7 @@ const STYLES: Record<string, Record<string, string[]>> = {
     metrics: ["mt-10 md:mt-20"],
     clients: ["mt-16", "md:mt-25"],
     features: ["mt-16", "md:mt-25"],
+    faq: ["mt-8", "md:mt-23"],
   },
   "/living": {
     solutions: ["mt-10"],
@@ -79,7 +80,7 @@ const STYLES: Record<string, Record<string, string[]>> = {
   <SectionIntegrations class:list={["mt-16", "md:mt-25"]} />
   <SectionCustomerSuccess class:list={["mt-10", "md:mt-25"]} />
   <SectionResources class:list={["mt-12", "md:mt-25"]} />
-  <SectionFaq class:list={["mt-8", "md:mt-23"]} />
+  <!-- <SectionFaq class:list={["mt-8", "md:mt-23"]} /> -->
   <SectionContact class:list={["mt-12", "md:mt-25"]} />
   <SectionAwards class:list={["mt-12", "md:mt-25"]} />
 </MainLayout>
