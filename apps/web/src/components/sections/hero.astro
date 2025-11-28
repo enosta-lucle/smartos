@@ -1,6 +1,7 @@
 ---
 import Button from "$/components/button.astro";
 import MotionVideo from "$/components/motion-video.astro";
+import TextHighlight from "$/components/text-highlight.astro";
 import type { Media, Button as TButton } from "$/types/strapi.type";
 
 type Props = {
@@ -27,7 +28,7 @@ const [titleBeforeHighlight, titleAfterHighlight] = title.split(highlight);
   <div class:list={["animate-fade-in-up", "md:animate-fade-in-right", "flex flex-col"]}>
     <h1 class:list={["text-4xl font-bold whitespace-pre-line", "md:text-6xl md:leading-snug"]}>
       {titleBeforeHighlight}
-      <span class="text-primary">{highlight}</span>
+      <TextHighlight>{highlight}</TextHighlight>
       {titleAfterHighlight}
     </h1>
 
