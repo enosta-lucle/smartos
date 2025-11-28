@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_integrations",
+  "info": {
+    "displayName": "Integrations"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "shared.integration",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

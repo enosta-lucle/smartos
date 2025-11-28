@@ -1,6 +1,19 @@
 ---
 import { range } from "lodash-es";
 import IconFlash from "$/assets/flash.svg";
+import Icon from "$/components/icon.astro";
+import type { Media } from "$/types/strapi.type";
+
+type Props = {
+  class?: string;
+  items?: Array<{
+    icon: string;
+    title: string;
+    logos: Array<Media>;
+  }>;
+};
+
+const { items = [] } = Astro.props;
 ---
 
 <section class:list={["bg-secondary bg-repeat bg-contain", "py-15.5", Astro.props.class]}>
@@ -9,18 +22,18 @@ import IconFlash from "$/assets/flash.svg";
   <div class="flex justify-center">
     <div class:list={["carousel carousel-center max-w-full mt-12"]}>
       {
-        range(5).map((idx) => (
+        items?.map(({ icon, logos, title }, idx) => (
           <div
             data-aos="fade-left"
             data-aos-delay={idx * 100}
             class:list={["carousel-item", "bg-cover", "w-63 h-78 mx-6 rounded-md p-4 pb-8 flex flex-col"]}
           >
-            <IconFlash class="size-6 text-white" />
-            <h3 class="font-bold text-white text-lg mt-2">Hợp đồng điện tử</h3>
+            <Icon src={icon} class="size-6 text-white" />
+            <h3 class="font-bold text-white text-lg mt-2">{title}</h3>
 
             <div class="grid grid-cols-2 gap-8 w-max mt-auto">
-              {range(4).map((idx) => (
-                <div class="w-23.5 h-7.5 rounded-md bg-gray-100/50" />
+              {logos.map((logo) => (
+                <img src={logo.url} alt={logo.alternativeText} class="w-23.5 h-7.5 object-center" />
               ))}
             </div>
           </div>

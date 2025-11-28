@@ -29,7 +29,8 @@
         "section.metrics",
         "section.clients",
         "section.features",
-        "section.faq"
+        "section.faq",
+        "section.integrations"
       ]
     }
   }
