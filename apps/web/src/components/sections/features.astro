@@ -2,12 +2,25 @@
 import { range } from "lodash-es";
 import iconExport from "$/assets/export.svg?raw";
 import Button from "$/components/button.astro";
+import type { Media, Button as TypeButton } from "$/types/strapi.type";
+
+type Props = {
+  class?: string;
+  items: Array<{
+    title: string;
+    description: string;
+    image: Media;
+    buttons: TypeButton[];
+  }>;
+};
+
+const { items } = Astro.props;
 ---
 
 <section class:list={["container", Astro.props.class]}>
   <div class:list={["grid gap-4", "md:grid md:grid-cols-6"]}>
     {
-      range(5).map((idx) => (
+      items?.map(({ title, description, image, buttons }, idx) => (
         <div
           data-aos="fade-down"
           class:list={[
@@ -18,15 +31,12 @@ import Button from "$/components/button.astro";
           ]}
         >
           <div class="flex items-center justify-center aspect-video bg-linear-to-t from-primary/30 to-gray-100/20 rounded-2xl">
-            Image
+            <img src={image?.url} class="size-full" />,
           </div>
 
-          <div class="mt-4 text-lg font-bold">Quản lý dịch vụ {idx}</div>
+          <div class="mt-4 text-lg font-bold">{title}</div>
 
-          <div class="mt-2 text-gray-700 h-15">
-            Tích hợp thiết bị đo điện nước, cửa vào giúp căn hộ an ninh, minh bạch hơn & không phải mất công kiểm tra
-            tận nơi.
-          </div>
+          <div class="mt-2 text-gray-700 h-15">{description}</div>
 
           <div class="flex gap-2 mt-6">
             <Button variant="solid" label="Xem demo" icon={iconExport} />

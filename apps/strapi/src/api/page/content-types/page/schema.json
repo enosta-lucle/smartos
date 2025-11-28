@@ -27,7 +27,8 @@
         "section.hero",
         "section.solutions",
         "section.metrics",
-        "section.clients"
+        "section.clients",
+        "section.features"
       ]
     }
   }

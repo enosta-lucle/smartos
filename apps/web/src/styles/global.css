@@ -4,105 +4,117 @@
 @import "./carousel.css";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", sans-serif;
+	--font-sans: "Plus Jakarta Sans", sans-serif;
 
-  --text-xs: 0.625rem;
-  --text-sm: 0.75rem;
-  --text-base: 0.875rem;
-  --text-md: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
+	--text-xs: 0.625rem;
+	--text-sm: 0.75rem;
+	--text-base: 0.875rem;
+	--text-md: 1rem;
+	--text-lg: 1.125rem;
+	--text-xl: 1.25rem;
 
-  --color-primary: #ffbe01;
-  --color-primary-50: #fffdf5;
-  --color-primary-100: #fff9e6;
-  --color-primary-200: #ffe497;
-  --color-primary-300: #ffd98c;
-  --color-primary-400: #ffc92c;
-  --color-primary-500: var(--color-primary);
-  --color-primary-600: #bd8c00;
-  --color-primary-700: #9c7401;
+	--color-primary: #ffbe01;
+	--color-primary-50: #fffdf5;
+	--color-primary-100: #fff9e6;
+	--color-primary-200: #ffe497;
+	--color-primary-300: #ffd98c;
+	--color-primary-400: #ffc92c;
+	--color-primary-500: var(--color-primary);
+	--color-primary-600: #bd8c00;
+	--color-primary-700: #9c7401;
 
-  --color-secondary: #012063;
-  --color-secondary-50: #bce0fa;
-  --color-secondary-100: #a5d3eb;
-  --color-secondary-200: #80b0dc;
-  --color-secondary-300: #0f80dc;
-  --color-secondary-400: #0846c1;
-  --color-secondary-500: var(--color-secondary);
-  --color-secondary-600: #01184c;
-  --color-secondary-700: #010d28;
+	--color-secondary: #012063;
+	--color-secondary-50: #bce0fa;
+	--color-secondary-100: #a5d3eb;
+	--color-secondary-200: #80b0dc;
+	--color-secondary-300: #0f80dc;
+	--color-secondary-400: #0846c1;
+	--color-secondary-500: var(--color-secondary);
+	--color-secondary-600: #01184c;
+	--color-secondary-700: #010d28;
 
-  --color-neutral-100: #1e2328;
+	--color-neutral-100: #1e2328;
 
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f2f4f7;
-  --color-gray-200: #eaecf0;
-  --color-gray-300: #d0d5dd;
-  --color-gray-400: #98a2b3;
-  --color-gray-500: #667085;
-  --color-gray-600: #475467;
-  --color-gray-700: #344054;
-  --color-gray-800: #182230;
-  --color-gray-900: #0c111d;
+	--color-gray-50: #f9fafb;
+	--color-gray-100: #f2f4f7;
+	--color-gray-200: #eaecf0;
+	--color-gray-300: #d0d5dd;
+	--color-gray-400: #98a2b3;
+	--color-gray-500: #667085;
+	--color-gray-600: #475467;
+	--color-gray-700: #344054;
+	--color-gray-800: #182230;
+	--color-gray-900: #0c111d;
 }
 
 @layer base {
-  body {
-    @apply text-base;
-  }
+	body {
+		@apply text-base;
+	}
 }
 
 @layer utilities {
-  .container {
-    @apply max-w-330 mx-auto px-4;
-  }
+	.container {
+		@apply max-w-330 mx-auto px-4;
+	}
 
-  .bg-corners-bottom-primary {
-    background: linear-gradient(
-      135deg,
-      var(--color-primary) 0%,
-      var(--color-primary) calc(100% - 35px),
-      transparent calc(100% - 35px)
-    );
-  }
+	.bg-corners-bottom-primary {
+		background: linear-gradient(
+			135deg,
+			var(--color-primary) 0%,
+			var(--color-primary) calc(100% - 35px),
+			transparent calc(100% - 35px)
+		);
+	}
 
-  .bg-corners-bottom-secondary {
-    background: linear-gradient(
-      135deg,
-      var(--color-secondary) 0%,
-      var(--color-secondary) calc(100% - 35px),
-      transparent calc(100% - 35px)
-    );
-  }
+	.bg-corners-bottom-secondary {
+		background: linear-gradient(
+			135deg,
+			var(--color-secondary) 0%,
+			var(--color-secondary) calc(100% - 35px),
+			transparent calc(100% - 35px)
+		);
+	}
 
-  .bg-corners-all-primary {
-    background: linear-gradient(
-      135deg,
-      transparent 35px,
-      var(--color-primary) 35px,
-      var(--color-primary) calc(100% - 35px),
-      transparent calc(100% - 35px)
-    );
-  }
+	.bg-corners-all-primary {
+		background: linear-gradient(
+			135deg,
+			transparent 35px,
+			var(--color-primary) 35px,
+			var(--color-primary) calc(100% - 35px),
+			transparent calc(100% - 35px)
+		);
+	}
 
-  .bg-conic-primary {
-    background: conic-gradient(from 26.12deg at 73.92% 45.73%, #ffbe00 0deg, #ffd500 360deg);
-  }
+	.bg-conic-primary {
+		background: conic-gradient(
+			from 26.12deg at 73.92% 45.73%,
+			#ffbe00 0deg,
+			#ffd500 360deg
+		);
+	}
 
-  .border-linear {
-    position: relative;
+	.border-linear {
+		position: relative;
 
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-bottom: 2px solid transparent;
-      border-radius: 16px;
-      border-image-slice: 1;
-      border-image-source: linear-gradient(90deg, #0f53dc 0.89%, #ffd96c 48.27%, #ffbe01 98.46%);
-      mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-    }
-  }
+		&::before {
+			content: "";
+			display: contents;
+			position: absolute;
+			inset: 0;
+			border-bottom: 2px solid transparent;
+			border-radius: 16px;
+			border-image-slice: 1;
+			border-image-source: linear-gradient(
+				90deg,
+				#0f53dc 0.89%,
+				#ffd96c 48.27%,
+				#ffbe01 98.46%
+			);
+			mask:
+				linear-gradient(#000 0 0) padding-box,
+				linear-gradient(#000 0 0);
+			mask-composite: exclude;
+		}
+	}
 }

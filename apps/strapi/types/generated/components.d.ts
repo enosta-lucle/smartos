@@ -56,6 +56,16 @@ export interface SectionClients extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionFeatures extends Struct.ComponentSchema {
+  collectionName: 'components_section_features';
+  info: {
+    displayName: 'Features';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.feature', true>;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -179,6 +189,19 @@ export interface SharedDepartment extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFeature extends Struct.ComponentSchema {
+  collectionName: 'components_shared_features';
+  info: {
+    displayName: 'Feature';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'shared.button', true>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMetricItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_metric_items';
   info: {
@@ -284,6 +307,7 @@ declare module '@strapi/strapi' {
       'header.menu-item-level-2': HeaderMenuItemLevel2;
       'header.menu-item-level-3': HeaderMenuItemLevel3;
       'section.clients': SectionClients;
+      'section.features': SectionFeatures;
       'section.hero': SectionHero;
       'section.metrics': SectionMetrics;
       'section.solutions': SectionSolutions;
@@ -294,6 +318,7 @@ declare module '@strapi/strapi' {
       'shared.contact-information': SharedContactInformation;
       'shared.counter': SharedCounter;
       'shared.department': SharedDepartment;
+      'shared.feature': SharedFeature;
       'shared.metric-item': SharedMetricItem;
       'shared.open-graph': SharedOpenGraph;
       'shared.process': SharedProcess;
