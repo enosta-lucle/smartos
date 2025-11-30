@@ -488,6 +488,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'section.integrations',
         'section.customer-success',
         'section.resource',
+        'section.cta',
       ]
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;

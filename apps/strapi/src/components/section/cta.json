@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_section_ctas",
+  "info": {
+    "displayName": "CTA"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "buttons": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": true
+    },
+    "visual": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

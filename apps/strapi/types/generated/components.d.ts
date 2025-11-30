@@ -56,6 +56,21 @@ export interface SectionClients extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionCta extends Struct.ComponentSchema {
+  collectionName: 'components_section_ctas';
+  info: {
+    displayName: 'CTA';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'shared.button', true>;
+    description: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    visual: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface SectionCustomerSuccess extends Struct.ComponentSchema {
   collectionName: 'components_section_customer_successes';
   info: {
@@ -378,6 +393,7 @@ declare module '@strapi/strapi' {
       'header.menu-item-level-2': HeaderMenuItemLevel2;
       'header.menu-item-level-3': HeaderMenuItemLevel3;
       'section.clients': SectionClients;
+      'section.cta': SectionCta;
       'section.customer-success': SectionCustomerSuccess;
       'section.faq': SectionFaq;
       'section.features': SectionFeatures;

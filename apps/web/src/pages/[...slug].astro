@@ -2,7 +2,7 @@
 import { first } from "lodash-es";
 import SectionAwards from "$/components/sections/awards.astro";
 import SectionClients from "$/components/sections/clients.astro";
-import SectionContact from "$/components/sections/contact.astro";
+import SectionCTA from "$/components/sections/cta.astro";
 import SectionCustomerSuccess from "$/components/sections/customer-success.astro";
 import SectionFAQ from "$/components/sections/faq.astro";
 import SectionFeatures from "$/components/sections/features.astro";
@@ -38,7 +38,7 @@ const SECTIONS: Record<string, any> = {
   "customer-success": SectionCustomerSuccess,
   resource: SectionResources,
   faq: SectionFAQ,
-  contact: SectionContact,
+  cta: SectionCTA,
   awards: SectionAwards,
 };
 
@@ -52,6 +52,8 @@ const STYLES: Record<string, Record<string, string[]>> = {
     integrations: ["mt-16", "md:mt-25"],
     "customer-success": ["mt-10", "md:mt-25"],
     resource: ["mt-12", "md:mt-25"],
+    cta: ["mt-12", "md:mt-25"],
+    awards: ["mt-12", "md:mt-25"],
   },
   "/living": {
     solutions: ["mt-10"],
@@ -86,6 +88,6 @@ const a = first(page?.data ?? []) ?? {};
   <!-- <SectionCustomerSuccess class:list={["mt-10", "md:mt-25"]} /> -->
   <!-- <SectionResources class:list={["mt-12", "md:mt-25"]} /> -->
   <!-- <SectionFaq class:list={["mt-8", "md:mt-23"]} /> -->
-  <SectionContact class:list={["mt-12", "md:mt-25"]} />
+  <!-- <SectionCTA class:list={["mt-12", "md:mt-25"]} /> -->
   <SectionAwards class:list={["mt-12", "md:mt-25"]} />
 </MainLayout>

@@ -32,7 +32,8 @@
         "section.faq",
         "section.integrations",
         "section.customer-success",
-        "section.resource"
+        "section.resource",
+        "section.cta"
       ]
     }
   }

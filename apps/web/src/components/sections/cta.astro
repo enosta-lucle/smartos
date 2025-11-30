@@ -4,6 +4,20 @@ import IconEmail from "$/assets/email.svg";
 import IconPhone from "$/assets/phone.svg";
 import Button from "$/components/button.astro";
 import FoldCorner from "$/components/fold-corner.astro";
+
+import { type Media, type Button as TypeButton } from "$/types/strapi.type";
+
+type Props = {
+  class?: string;
+  title?: string;
+  description?: string;
+  buttons?: TypeButton[];
+  visual?: Media;
+  phone?: string;
+  email?: string;
+};
+
+const { title, description, buttons, visual, phone, email } = Astro.props;
 ---
 
 <section data-aos="fade-up" class:list={["container", Astro.props.class]}>
@@ -17,11 +31,10 @@ import FoldCorner from "$/components/fold-corner.astro";
     ]}
   >
     <div class="md:grow">
-      <div class="font-bold text-2xl">30 phút tư vấn hôm nay</div>
-      <div class="text-lg mt-4">Tiết kiệm 30% thời gian mỗi ngày</div>
-      <div class:list={["flex gap-2 justify-center mt-6", "md:justify-start"]}>
-        <Button label="Đặt hẹn" variant="white" class:list={["min-w-40"]} />
-        <Button label="Dùng thử miễn phí" variant="text" />
+      <div class="font-bold text-2xl">{title}</div>
+      <div class="text-lg mt-4">{description}</div>
+      <div class:list={["flex gap-2 justify-center mt-6", "md:justify-start md:mt-10"]}>
+        {buttons?.map((button) => <Button label={button.label} variant={button.variant} class:list={["min-w-40"]} />)}
       </div>
     </div>
 
@@ -31,14 +44,14 @@ import FoldCorner from "$/components/fold-corner.astro";
       <div class:list={["flex flex-col gap-3", "md:flex-row md:items-center"]}>
         <div class="flex gap-2">
           <IconPhone class="size-5" />
-          <div class="font-medium">+84 905 969 648</div>
+          <div class="font-medium">{phone}</div>
         </div>
 
         <div class:list={["hidden", "md:block md:h-3 md:w-px md:bg-gray-900"]}></div>
 
         <div class="flex gap-2">
           <IconEmail class="size-5" />
-          <div class="font-medium">support@smartos.space</div>
+          <div class="font-medium">{email}</div>
         </div>
       </div>
     </div>
