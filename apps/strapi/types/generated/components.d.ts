@@ -121,6 +121,18 @@ export interface SectionMetrics extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionResource extends Struct.ComponentSchema {
+  collectionName: 'components_section_resources';
+  info: {
+    displayName: 'Resource';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'shared.button', false>;
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionSolutions extends Struct.ComponentSchema {
   collectionName: 'components_section_solutions';
   info: {
@@ -372,6 +384,7 @@ declare module '@strapi/strapi' {
       'section.hero': SectionHero;
       'section.integrations': SectionIntegrations;
       'section.metrics': SectionMetrics;
+      'section.resource': SectionResource;
       'section.solutions': SectionSolutions;
       'shared.address': SharedAddress;
       'shared.award': SharedAward;

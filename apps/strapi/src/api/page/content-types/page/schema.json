@@ -31,7 +31,8 @@
         "section.features",
         "section.faq",
         "section.integrations",
-        "section.customer-success"
+        "section.customer-success",
+        "section.resource"
       ]
     }
   }

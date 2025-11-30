@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_section_resources",
+  "info": {
+    "displayName": "Resource"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
