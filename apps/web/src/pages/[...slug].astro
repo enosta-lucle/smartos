@@ -26,7 +26,7 @@ const page = await api<PageResponse>("/pages", {
   filters: { slug },
 });
 
-const { sections } = first(page?.data ?? []) ?? {};
+const { sections, seo } = first(page?.data ?? []) ?? {};
 
 const SECTIONS: Record<string, any> = {
   hero: SectionHero,
@@ -57,13 +57,15 @@ const STYLES: Record<string, Record<string, string[]>> = {
     solutions: ["mt-10"],
   },
 };
+const a = first(page?.data ?? []) ?? {};
 ---
 
-<script define:vars={{ sections }}>
+<script define:vars={{ sections, a }}>
   console.log(sections);
+  console.log(a);
 </script>
 
-<MainLayout>
+<MainLayout seo={seo}>
   {
     sections?.map((section) => {
       const key = section.__component.replace("section.", "");

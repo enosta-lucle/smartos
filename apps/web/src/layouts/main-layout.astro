@@ -2,14 +2,17 @@
 import "$/styles/global.css";
 import "aos/dist/aos.css";
 
+import { SEO } from "astro-seo";
 import Footer from "$/components/footer/footer.astro";
 import Header from "$/components/header/header.astro";
+import type { SEO as TypeSEO } from "$/types/strapi.type";
 
 type Props = {
   title?: string;
+  seo?: TypeSEO;
 };
 
-const { title = "Smartos" } = Astro.props;
+const { title = "Smartos", seo } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,6 +28,29 @@ const { title = "Smartos" } = Astro.props;
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
+    />
+
+    <SEO
+      title={seo?.metaTitle}
+      description={seo?.metaDescription}
+      canonical={seo?.canonicalURL}
+      openGraph={{
+        basic: {
+          title: seo?.openGraph.ogTitle || seo?.metaTitle || "",
+          type: seo?.openGraph.ogType || "website",
+          image: seo?.metaImage.url || seo?.openGraph.ogImage.url || "",
+          url: seo?.openGraph.ogUrl || seo?.canonicalURL,
+        },
+      }}
+      extend={{
+        meta: [
+          { name: "keywords", content: seo?.keywords },
+          { name: "robots", content: seo?.metaRobots },
+          { name: "viewport", content: seo?.metaViewport },
+          // { name: "twitter:card", content: "summary_large_image" },
+          // { name: "twitter:image", content: seo.metaImage.url },
+        ],
+      }}
     />
 
     <title>{title}</title>

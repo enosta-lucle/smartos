@@ -98,7 +98,6 @@ export type SectionSolutions = {
 };
 
 export type Section = SectionHero;
-export type SEO = any;
 
 export type Page = {
 	id: number;
@@ -109,6 +108,92 @@ export type Page = {
 	slug: string;
 	seo: SEO;
 	sections: Section[];
+};
+
+export type SEO = {
+	id: number;
+	metaTitle: string;
+	metaDescription: string;
+	keywords: string;
+	metaRobots: string;
+	metaViewport: string;
+	canonicalURL: string;
+	structuredData: any;
+	metaImage: {
+		id: number;
+		documentId: string;
+		name: string;
+		alternativeText: any;
+		caption: any;
+		width: number;
+		height: number;
+		formats: {
+			thumbnail: {
+				ext: string;
+				url: string;
+				hash: string;
+				mime: string;
+				name: string;
+				path: any;
+				size: number;
+				width: number;
+				height: number;
+				sizeInBytes: number;
+			};
+		};
+		hash: string;
+		ext: string;
+		mime: string;
+		size: number;
+		url: string;
+		previewUrl: any;
+		provider: string;
+		provider_metadata: any;
+		createdAt: string;
+		updatedAt: string;
+		publishedAt: string;
+	};
+	openGraph: {
+		id: number;
+		ogTitle: string;
+		ogDescription: string;
+		ogUrl: string;
+		ogType: string;
+		ogImage: {
+			id: number;
+			documentId: string;
+			name: string;
+			alternativeText: any;
+			caption: any;
+			width: number;
+			height: number;
+			formats: {
+				thumbnail: {
+					ext: string;
+					url: string;
+					hash: string;
+					mime: string;
+					name: string;
+					path: any;
+					size: number;
+					width: number;
+					height: number;
+					sizeInBytes: number;
+				};
+			};
+			hash: string;
+			ext: string;
+			mime: string;
+			size: number;
+			url: string;
+			previewUrl: any;
+			provider: string;
+			provider_metadata: any;
+			createdAt: string;
+			updatedAt: string;
+			publishedAt: string;
+		};
+	};
 };
 
 //--------------
