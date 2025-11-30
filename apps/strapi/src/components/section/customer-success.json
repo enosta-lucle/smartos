@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_customer_successes",
+  "info": {
+    "displayName": "Customer Success"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "shared.customer-success",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -486,6 +486,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'section.features',
         'section.faq',
         'section.integrations',
+        'section.customer-success',
       ]
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;

@@ -1,6 +1,25 @@
 ---
+import { Image } from "astro:assets";
 import { range } from "lodash-es";
 import Counter from "$/components/counter.astro";
+import type { Media } from "$/types/strapi.type";
+
+type Props = {
+  class?: string;
+  items: Array<{
+    id: number;
+    value: number;
+    unit: string;
+    description: string;
+    brand: {
+      name?: string;
+      href: string;
+      logo: Media;
+    };
+  }>;
+};
+
+const { items } = Astro.props;
 ---
 
 <section class:list={["container", Astro.props.class]}>
@@ -8,20 +27,22 @@ import Counter from "$/components/counter.astro";
 
   <div class:list={["mt-8 flex flex-col items-center gap-6", "md:flex-row"]}>
     {
-      range(3).map((idx) => (
+      items?.map(({ value, unit, description, brand }) => (
         <div
           data-aos="fade"
           class:list={["w-full h-72.5 p-4 border border-gray-200 rounded-2xl inline-flex! flex-col items-center"]}
         >
           <div class="bg-gray-100 h-37.5 w-full rounded-xl shrink-0 flex flex-col items-center justify-center">
             <div class="text-4xl font-bold">
-              <Counter value={94} label="%" />
+              <Counter value={value} label={unit} />
             </div>
-            <div class="text-gray-700 mt-2">Tăng trưởng tỉ lệ lấp phòng</div>
+            <div class="text-gray-700 mt-2 px-2 text-center">{description}</div>
           </div>
 
-          <div class="w-20 h-10 flex justify-center items-center mt-6 bg-gray-100">Brand</div>
-          <span class="font-semibold text-md mt-3">Nhà trọ Văn Minh</span>
+          <div class="w-20 h-10 flex justify-center items-center mt-6">
+            <Image src={brand.logo.url} alt={brand.name ?? ""} width={80} height={40} class="object-contain" />
+          </div>
+          <span class="font-semibold text-md mt-3">{brand.name}</span>
         </div>
       ))
     }

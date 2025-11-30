@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_customer_successes",
+  "info": {
+    "displayName": "Customer Success"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "integer"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "component",
+      "component": "shared.brand",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

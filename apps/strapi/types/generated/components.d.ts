@@ -56,6 +56,16 @@ export interface SectionClients extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionCustomerSuccess extends Struct.ComponentSchema {
+  collectionName: 'components_section_customer_successes';
+  info: {
+    displayName: 'Customer Success';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.customer-success', true>;
+  };
+}
+
 export interface SectionFaq extends Struct.ComponentSchema {
   collectionName: 'components_section_faqs';
   info: {
@@ -194,6 +204,19 @@ export interface SharedCounter extends Struct.ComponentSchema {
     count: Schema.Attribute.Integer & Schema.Attribute.Required;
     label: Schema.Attribute.String;
     unit: Schema.Attribute.String;
+  };
+}
+
+export interface SharedCustomerSuccess extends Struct.ComponentSchema {
+  collectionName: 'components_shared_customer_successes';
+  info: {
+    displayName: 'Customer Success';
+  };
+  attributes: {
+    brand: Schema.Attribute.Component<'shared.brand', false>;
+    description: Schema.Attribute.String;
+    unit: Schema.Attribute.String;
+    value: Schema.Attribute.Integer;
   };
 }
 
@@ -343,6 +366,7 @@ declare module '@strapi/strapi' {
       'header.menu-item-level-2': HeaderMenuItemLevel2;
       'header.menu-item-level-3': HeaderMenuItemLevel3;
       'section.clients': SectionClients;
+      'section.customer-success': SectionCustomerSuccess;
       'section.faq': SectionFaq;
       'section.features': SectionFeatures;
       'section.hero': SectionHero;
@@ -355,6 +379,7 @@ declare module '@strapi/strapi' {
       'shared.button': SharedButton;
       'shared.contact-information': SharedContactInformation;
       'shared.counter': SharedCounter;
+      'shared.customer-success': SharedCustomerSuccess;
       'shared.department': SharedDepartment;
       'shared.feature': SharedFeature;
       'shared.integration': SharedIntegration;
