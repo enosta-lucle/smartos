@@ -46,6 +46,16 @@ export interface HeaderMenuItemLevel3 extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionAwards extends Struct.ComponentSchema {
+  collectionName: 'components_section_awards';
+  info: {
+    displayName: 'Awards';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.award', true>;
+  };
+}
+
 export interface SectionClients extends Struct.ComponentSchema {
   collectionName: 'components_section_clients';
   info: {
@@ -176,7 +186,7 @@ export interface SharedAward extends Struct.ComponentSchema {
   };
   attributes: {
     name: Schema.Attribute.String;
-    year: Schema.Attribute.Integer;
+    year: Schema.Attribute.String;
   };
 }
 
@@ -392,6 +402,7 @@ declare module '@strapi/strapi' {
       'header.menu-item-level-1': HeaderMenuItemLevel1;
       'header.menu-item-level-2': HeaderMenuItemLevel2;
       'header.menu-item-level-3': HeaderMenuItemLevel3;
+      'section.awards': SectionAwards;
       'section.clients': SectionClients;
       'section.cta': SectionCta;
       'section.customer-success': SectionCustomerSuccess;

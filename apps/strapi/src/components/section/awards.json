@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_awards",
+  "info": {
+    "displayName": "Awards"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "shared.award",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
