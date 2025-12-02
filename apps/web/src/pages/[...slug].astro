@@ -1,5 +1,5 @@
 ---
-import { first } from "lodash-es";
+import { first, get } from "lodash-es";
 import SectionAwards from "$/components/sections/awards.astro";
 import SectionClients from "$/components/sections/clients.astro";
 import SectionCTA from "$/components/sections/cta.astro";
@@ -16,18 +16,20 @@ import MainLayout from "$/layouts/main-layout.astro";
 import type { PageResponse } from "$/types/strapi.type";
 import { api } from "$/utils/client.util";
 
-export function getStaticPaths() {
-  return [{ params: { slug: "/" } }, { params: { slug: "/living" } }];
+export async function getStaticPaths() {
+  const getPages = await api<PageResponse>("/pages");
+  const pages = get(getPages, "data") ?? [];
+
+  return pages.map((page) => ({ params: { slug: get(page, "slug") } }));
 }
 
 const slug = `/${Astro.params.slug || ""}`;
 
+console.log(slug);
 
-const page = await api<PageResponse>("/pages", {
-  filters: { slug },
-});
+const getPage = await api<PageResponse>("/pages", { filters: { slug } });
 
-const { sections, seo } = first(page?.data ?? []) ?? {};
+const { sections, seo } = first(get(getPage, "data")) ?? {};
 
 const SECTIONS: Record<string, any> = {
   hero: SectionHero,
@@ -62,10 +64,6 @@ const STYLES: Record<string, Record<string, string[]>> = {
 };
 ---
 
-<script define:vars={{ sections }}>
-  console.log(sections);
-</script>
-
 <MainLayout seo={seo}>
   {
     sections?.map((section) => {
@@ -79,14 +77,4 @@ const STYLES: Record<string, Record<string, string[]>> = {
       return <Section {...section} class:list={className} />;
     })
   }
-
-  <!-- <SectionMetrics class:list={["mt-10 md:mt-20"]} /> -->
-  <!-- <SectionClients class:list={["mt-16", "md:mt-25"]} /> -->
-  <!-- <SectionFeatures class:list={["mt-16", "md:mt-25"]} /> -->
-  <!-- <SectionIntegrations class:list={["mt-16", "md:mt-25"]} /> -->
-  <!-- <SectionCustomerSuccess class:list={["mt-10", "md:mt-25"]} /> -->
-  <!-- <SectionResources class:list={["mt-12", "md:mt-25"]} /> -->
-  <!-- <SectionFaq class:list={["mt-8", "md:mt-23"]} /> -->
-  <!-- <SectionCTA class:list={["mt-12", "md:mt-25"]} /> -->
-  <!-- <SectionAwards class:list={["mt-12", "md:mt-25"]} /> -->
 </MainLayout>
