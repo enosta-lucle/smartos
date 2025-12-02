@@ -38,8 +38,9 @@ const { items } = Astro.props;
           <div class="mt-2 text-gray-700 h-15">{description}</div>
 
           <div class="flex gap-2 mt-6">
-            <Button variant="solid" label="Xem demo" icon={iconExport} />
-            <Button variant="text" label="Dùng thử" />
+            {buttons.map(({ label, href, variant, icon }) => (
+              <Button href={href} variant={variant} label={label} icon={icon} />
+            ))}
           </div>
         </div>
       ))
