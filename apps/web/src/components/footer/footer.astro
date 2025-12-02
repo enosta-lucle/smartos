@@ -1,12 +1,15 @@
 ---
 import IconEmail from "$/assets/email.svg";
-import IconFacebook from "$/assets/facebook.svg";
-import IconLinkedin from "$/assets/linkedin.svg";
 import IconLocation from "$/assets/location.svg";
 import IconPhone from "$/assets/phone.svg";
-import IconYoutube from "$/assets/youtube.svg";
+import Icon from "$/components/icon.astro";
 
 import LogoText from "$/components/logo-text.astro";
+import type { Footer } from "$/types/strapi.type";
+
+type Props = Footer;
+
+const { description, socials, columns, contact } = Astro.props;
 ---
 
 <footer class:list={["relative", "py-10", "border-t border-gray-200 mt-25"]}>
@@ -23,44 +26,32 @@ import LogoText from "$/components/logo-text.astro";
       <div>
         <LogoText height={30} />
         <div class:list={["mt-6 text-gray-600"]}>
-          Smartos là nền tảng vận hành toàn diện cho bất động sản cho thuê, kết nối vận hành - dữ liệu - khách thuê - tư
-          vấn trong một hệ sinh thái thống nhất, giúp doanh nghiệp tối ưu quy trình, minh bạch tài chính và mở rộng bền
-          vững.
+          {description}
         </div>
-        <div class:list={["mt-8 flex gap-5.5"]}>
-          <IconFacebook class:list={["size-6 text-neutral-100"]} />
-          <IconLinkedin class:list={["size-6 text-neutral-100"]} />
-          <IconYoutube class:list={["size-6 text-neutral-100"]} />
+        <div class:list={["mt-8 flex gap-5.5 text-neutral-100"]}>
+          {
+            socials.map(({ logo, href }) => (
+              <a href={href}>
+                <Icon src={logo} class="size-6" />
+              </a>
+            ))
+          }
         </div>
       </div>
 
-      <div class:list={["order-2", "flex flex-col gap-4 text-md", "md:min-w-38.5"]}>
-        <div class="font-bold text-lg">Công ty</div>
+      {
+        columns.map(({ title, links }, idx) => (
+          <div class:list={["flex flex-col gap-4 text-md", "md:min-w-38.5"]} style={`order: ${idx + 2};`}>
+            <div class="font-bold text-lg">{title}</div>
 
-        <div class="text-gray-700">Về Smartos</div>
-        <div class="text-gray-700">Trung tâm hỗ trợ</div>
-        <div class="text-gray-700">Liên hệ ngay</div>
-        <div class="text-gray-700">Điều khoản sử dụng</div>
-        <div class="text-gray-700">Chính sách bảo mật</div>
-      </div>
-
-      <div class:list={["order-3", "flex flex-col gap-4 text-md", "md:min-w-38.5"]}>
-        <div class="font-bold text-lg">Giải pháp</div>
-
-        <div class="text-gray-700">Quản lý co-working, văn phòng</div>
-        <div class="text-gray-700">Quản lý căn hộ, phòng trọ</div>
-        <div class="text-gray-700">Tìm kiếm nơi ở, nơi làm việc</div>
-      </div>
-
-      <div class:list={["order-4", "flex flex-col gap-4 text-md", "md:min-w-38.5"]}>
-        <div class="font-bold text-lg">Sản phẩm</div>
-
-        <div class="text-gray-700">PMS</div>
-        <div class="text-gray-700">Bespoke</div>
-        <div class="text-gray-700">Booking</div>
-        <div class="text-gray-400">Intelligence</div>
-        <div class="text-gray-400">Consulting</div>
-      </div>
+            {links.map(({ href, label, disabled }) => (
+              <a href={href} class:list={[disabled ? "text-gray-400" : "text-gray-700"]}>
+                {label}
+              </a>
+            ))}
+          </div>
+        ))
+      }
 
       <div class:list={["order-1", "md:order-5", "flex flex-col gap-4 text-md", "md:min-w-56.5"]}>
         <div class="font-bold text-lg">Contacts us</div>
@@ -68,26 +59,25 @@ import LogoText from "$/components/logo-text.astro";
         <div class:list={["flex gap-2"]}>
           <IconLocation class:list={["size-5 shrink-0"]} />
           <div class="flex flex-col gap-2">
-            <div>
-              <span class="font-semibold">Hồ Chí Minh:</span>
-              <span class="text-gray-700">46 Trương Quyền, Phường 6, Quận 3</span>
-            </div>
-
-            <div>
-              <span class="font-semibold">Đà Nẵng:</span>
-              <span class="text-gray-700">18 An Nhơn 3, An Hải Bắc, Sơn Trà </span>
-            </div>
+            {
+              contact.addresses.map((address) => (
+                <div>
+                  <span class="font-semibold">{address.city}:</span>
+                  <span class="text-gray-700">{address.detail}</span>
+                </div>
+              ))
+            }
           </div>
         </div>
 
         <div class:list={["flex gap-2"]}>
           <IconPhone class:list={["size-5 shrink-0"]} />
-          <span class="text-gray-700">(84) 905 969 648</span>
+          <span class="text-gray-700">{contact.phone}</span>
         </div>
 
         <div class:list={["flex gap-2"]}>
           <IconEmail class:list={["size-5 shrink-0"]} />
-          <span class="text-gray-700">support@smartos.space</span>
+          <span class="text-gray-700">{contact.email}</span>
         </div>
       </div>
     </div>

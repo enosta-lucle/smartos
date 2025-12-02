@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_shared_contact_informations",
+  "collectionName": "components_shared_contacts",
   "info": {
-    "displayName": "Contact Information"
+    "displayName": "Contact"
   },
   "options": {},
   "attributes": {
@@ -9,15 +9,6 @@
       "type": "string"
     },
     "email": {
-      "type": "string"
-    },
-    "facebook": {
-      "type": "string"
-    },
-    "linkedin": {
-      "type": "string"
-    },
-    "youtube": {
       "type": "string"
     },
     "addresses": {

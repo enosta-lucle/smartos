@@ -29,7 +29,7 @@ console.log(slug);
 
 const getPage = await api<PageResponse>("/pages", { filters: { slug } });
 
-const { sections, seo } = first(get(getPage, "data")) ?? {};
+const { sections, seo, footer } = first(get(getPage, "data")) ?? {};
 
 const SECTIONS: Record<string, any> = {
   hero: SectionHero,
@@ -64,7 +64,7 @@ const STYLES: Record<string, Record<string, string[]>> = {
 };
 ---
 
-<MainLayout seo={seo}>
+<MainLayout seo={seo} footer={footer}>
   {
     sections?.map((section) => {
       const key = section.__component.replace("section.", "");

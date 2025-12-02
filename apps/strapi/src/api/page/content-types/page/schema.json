@@ -36,6 +36,11 @@
         "section.cta",
         "section.awards"
       ]
+    },
+    "footer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::footer.footer"
     }
   }
 }

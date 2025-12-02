@@ -108,6 +108,8 @@ export type Page = {
 	slug: string;
 	seo: SEO;
 	sections: Section[];
+
+	footer?: Footer;
 };
 
 export type SEO = {
@@ -194,6 +196,41 @@ export type SEO = {
 			publishedAt: string;
 		};
 	};
+};
+
+export type Footer = {
+	id: number;
+	documentId: string;
+	description: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	name: string;
+	socials: Array<{
+		id: number;
+		logo: string;
+		href: string;
+	}>;
+	contact: {
+		id: number;
+		phone: string;
+		email: string;
+		addresses: Array<{
+			id: number;
+			city: string;
+			detail: string;
+		}>;
+	};
+	columns: Array<{
+		id: number;
+		title: string;
+		links: Array<{
+			id: number;
+			label: string;
+			href: string;
+			disabled: boolean;
+		}>;
+	}>;
 };
 
 //--------------

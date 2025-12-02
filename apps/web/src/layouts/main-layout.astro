@@ -5,14 +5,15 @@ import "aos/dist/aos.css";
 import { SEO } from "astro-seo";
 import Footer from "$/components/footer/footer.astro";
 import Header from "$/components/header/header.astro";
-import type { SEO as TypeSEO } from "$/types/strapi.type";
+import type { Footer as TypeFooter, SEO as TypeSEO } from "$/types/strapi.type";
 
 type Props = {
   title?: string;
   seo?: TypeSEO;
+  footer?: TypeFooter;
 };
 
-const { title = "Smartos", seo } = Astro.props;
+const { title = "Smartos", seo, footer } = Astro.props;
 ---
 
 <!doctype html>
@@ -59,7 +60,8 @@ const { title = "Smartos", seo } = Astro.props;
   <body>
     <Header />
     <slot />
-    <Footer />
+
+    {footer && <Footer {...footer} />}
 
     <script>
       import AOS from "aos";

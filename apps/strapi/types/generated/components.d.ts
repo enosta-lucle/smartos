@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface FooterFooterColumn extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_columns';
+  info: {
+    displayName: 'Footer Column';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'shared.link', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface HeaderMenuItemLevel1 extends Struct.ComponentSchema {
   collectionName: 'components_header_menu_item_level_1s';
   info: {
@@ -217,18 +228,15 @@ export interface SharedButton extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedContactInformation extends Struct.ComponentSchema {
-  collectionName: 'components_shared_contact_informations';
+export interface SharedContact extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contacts';
   info: {
-    displayName: 'Contact Information';
+    displayName: 'Contact';
   };
   attributes: {
     addresses: Schema.Attribute.Component<'shared.address', true>;
     email: Schema.Attribute.String;
-    facebook: Schema.Attribute.String;
-    linkedin: Schema.Attribute.String;
     phone: Schema.Attribute.String;
-    youtube: Schema.Attribute.String;
   };
 }
 
@@ -295,6 +303,18 @@ export interface SharedIntegration extends Struct.ComponentSchema {
       true
     >;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    disabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    href: Schema.Attribute.String;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -383,6 +403,18 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSocial extends Struct.ComponentSchema {
+  collectionName: 'components_shared_socials';
+  info: {
+    displayName: 'Social';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    logo: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<'plugin::icons-field.icon'>;
+  };
+}
+
 export interface SharedSolution extends Struct.ComponentSchema {
   collectionName: 'components_shared_solutions';
   info: {
@@ -399,6 +431,7 @@ export interface SharedSolution extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'footer.footer-column': FooterFooterColumn;
       'header.menu-item-level-1': HeaderMenuItemLevel1;
       'header.menu-item-level-2': HeaderMenuItemLevel2;
       'header.menu-item-level-3': HeaderMenuItemLevel3;
@@ -417,17 +450,19 @@ declare module '@strapi/strapi' {
       'shared.award': SharedAward;
       'shared.brand': SharedBrand;
       'shared.button': SharedButton;
-      'shared.contact-information': SharedContactInformation;
+      'shared.contact': SharedContact;
       'shared.counter': SharedCounter;
       'shared.customer-success': SharedCustomerSuccess;
       'shared.department': SharedDepartment;
       'shared.feature': SharedFeature;
       'shared.integration': SharedIntegration;
+      'shared.link': SharedLink;
       'shared.metric-item': SharedMetricItem;
       'shared.open-graph': SharedOpenGraph;
       'shared.process': SharedProcess;
       'shared.question': SharedQuestion;
       'shared.seo': SharedSeo;
+      'shared.social': SharedSocial;
       'shared.solution': SharedSolution;
     }
   }
