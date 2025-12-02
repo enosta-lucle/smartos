@@ -17,10 +17,11 @@ import type { PageResponse } from "$/types/strapi.type";
 import { api } from "$/utils/client.util";
 
 export function getStaticPaths() {
-  return [{ params: { slug: "/" } }, { params: { slug: "living" } }];
+  return [{ params: { slug: "/" } }, { params: { slug: "/living" } }];
 }
 
-const slug = Astro.params.slug || "/";
+const slug = `/${Astro.params.slug || ""}`;
+
 
 const page = await api<PageResponse>("/pages", {
   filters: { slug },
